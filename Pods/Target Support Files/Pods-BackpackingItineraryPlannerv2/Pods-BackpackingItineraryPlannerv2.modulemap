@@ -1,0 +1,6 @@
+framework module Pods_BackpackingItineraryPlannerv2 {
+  umbrella header "Pods-BackpackingItineraryPlannerv2-umbrella.h"
+
+  export *
+  module * { export * }
+}
