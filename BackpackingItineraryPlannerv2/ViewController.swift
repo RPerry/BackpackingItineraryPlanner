@@ -20,10 +20,19 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var cityTextField: UITextField!
     
+    @IBOutlet weak var cityTripLabel: UILabel!
     
     var userInputCity = ""
     @IBAction func citySubmitOnClick(_ sender: Any) {
         userInputCity = cityTextField.text!
+        checkForSpace(userCity: userInputCity)
+        getCityLatAndLong(city: userInputCity, countryCode: "US", onComplete: { location -> Void in
+            if let loc = location {
+                self.locations.append(loc)
+                self.addAnnotation(location: loc)
+            }
+        })
+        cityTextField.text = ""
     }
     
     var locations: [Location] = [
@@ -39,6 +48,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         cityTextField.delegate = self
         
@@ -83,17 +93,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         } else if userCity.hasSuffix(" ") {
             userInputCity = String(userInputCity.dropLast())
         }
-    }
-
-    @IBAction func APIRequest(_ sender: Any) {
-        print("retrieving location")
-        checkForSpace(userCity: userInputCity)
-        getCityLatAndLong(city: userInputCity, countryCode: "US", onComplete: { location -> Void in
-            if let loc = location {
-                self.locations.append(loc)
-                self.addAnnotation(location: loc)
-            }
-        })
     }
 
 }

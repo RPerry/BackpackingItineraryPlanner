@@ -13,8 +13,11 @@
 		77EC7E3722D5163B007A5E30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77EC7E3622D5163B007A5E30 /* Assets.xcassets */; };
 		77EC7E3A22D5163B007A5E30 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77EC7E3822D5163B007A5E30 /* LaunchScreen.storyboard */; };
 		77EC7E4822D516AA007A5E30 /* getCityLatAndLongFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EC7E4722D516AA007A5E30 /* getCityLatAndLongFunc.swift */; };
-		77EC7E4A22D65203007A5E30 /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EC7E4922D65203007A5E30 /* Trip.swift */; };
 		77EC7E5022D69F6E007A5E30 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EC7E4F22D69F6E007A5E30 /* Location.swift */; };
+		77EC7E5222D7D43E007A5E30 /* TripNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EC7E5122D7D43E007A5E30 /* TripNameViewController.swift */; };
+		77EC7E5422D7D8CB007A5E30 /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EC7E5322D7D8CB007A5E30 /* Trip.swift */; };
+		77EC7E5622D7F755007A5E30 /* StartCityEndCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EC7E5522D7F755007A5E30 /* StartCityEndCityViewController.swift */; };
+		77EC7E5822D802C1007A5E30 /* startDateEndDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EC7E5722D802C1007A5E30 /* startDateEndDateViewController.swift */; };
 		C7C7A6DA066B029401D22C66 /* Pods_BackpackingItineraryPlannerv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEC558CA71848244D18CB4C3 /* Pods_BackpackingItineraryPlannerv2.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,8 +30,11 @@
 		77EC7E3922D5163B007A5E30 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		77EC7E3B22D5163B007A5E30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		77EC7E4722D516AA007A5E30 /* getCityLatAndLongFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getCityLatAndLongFunc.swift; sourceTree = "<group>"; };
-		77EC7E4922D65203007A5E30 /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		77EC7E4F22D69F6E007A5E30 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		77EC7E5122D7D43E007A5E30 /* TripNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripNameViewController.swift; sourceTree = "<group>"; };
+		77EC7E5322D7D8CB007A5E30 /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
+		77EC7E5522D7F755007A5E30 /* StartCityEndCityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartCityEndCityViewController.swift; sourceTree = "<group>"; };
+		77EC7E5722D802C1007A5E30 /* startDateEndDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = startDateEndDateViewController.swift; sourceTree = "<group>"; };
 		AAE0D6667E03CA4A225D85F8 /* Pods-BackpackingItineraryPlannerv2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BackpackingItineraryPlannerv2.release.xcconfig"; path = "Target Support Files/Pods-BackpackingItineraryPlannerv2/Pods-BackpackingItineraryPlannerv2.release.xcconfig"; sourceTree = "<group>"; };
 		BEC558CA71848244D18CB4C3 /* Pods_BackpackingItineraryPlannerv2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BackpackingItineraryPlannerv2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA139555817BA1E849A73931 /* Pods-BackpackingItineraryPlannerv2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BackpackingItineraryPlannerv2.debug.xcconfig"; path = "Target Support Files/Pods-BackpackingItineraryPlannerv2/Pods-BackpackingItineraryPlannerv2.debug.xcconfig"; sourceTree = "<group>"; };
@@ -90,6 +96,10 @@
 				77EC7E3122D5163A007A5E30 /* ViewController.swift */,
 				77EC7E4F22D69F6E007A5E30 /* Location.swift */,
 				77EC7E3322D5163A007A5E30 /* Main.storyboard */,
+				77EC7E5522D7F755007A5E30 /* StartCityEndCityViewController.swift */,
+				77EC7E5722D802C1007A5E30 /* startDateEndDateViewController.swift */,
+				77EC7E5122D7D43E007A5E30 /* TripNameViewController.swift */,
+				77EC7E5322D7D8CB007A5E30 /* Trip.swift */,
 				77EC7E3622D5163B007A5E30 /* Assets.xcassets */,
 				77EC7E3822D5163B007A5E30 /* LaunchScreen.storyboard */,
 				77EC7E3B22D5163B007A5E30 /* Info.plist */,
@@ -108,7 +118,6 @@
 		77EC7E4222D5165D007A5E30 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				77EC7E4922D65203007A5E30 /* Trip.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -246,11 +255,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				77EC7E4A22D65203007A5E30 /* Trip.swift in Sources */,
 				77EC7E3222D5163A007A5E30 /* ViewController.swift in Sources */,
+				77EC7E5222D7D43E007A5E30 /* TripNameViewController.swift in Sources */,
 				77EC7E4822D516AA007A5E30 /* getCityLatAndLongFunc.swift in Sources */,
 				77EC7E3022D5163A007A5E30 /* AppDelegate.swift in Sources */,
+				77EC7E5622D7F755007A5E30 /* StartCityEndCityViewController.swift in Sources */,
+				77EC7E5422D7D8CB007A5E30 /* Trip.swift in Sources */,
 				77EC7E5022D69F6E007A5E30 /* Location.swift in Sources */,
+				77EC7E5822D802C1007A5E30 /* startDateEndDateViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
