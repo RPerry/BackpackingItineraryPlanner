@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7729246B22DCFF4F00F4A183 /* PracticeRouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7729246A22DCFF4F00F4A183 /* PracticeRouteViewController.swift */; };
+		7729246D22DD2E3700F4A183 /* stringtodate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7729246C22DD2E3700F4A183 /* stringtodate.swift */; };
 		77EC7E3022D5163A007A5E30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EC7E2F22D5163A007A5E30 /* AppDelegate.swift */; };
 		77EC7E3222D5163A007A5E30 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EC7E3122D5163A007A5E30 /* ViewController.swift */; };
 		77EC7E3522D5163A007A5E30 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77EC7E3322D5163A007A5E30 /* Main.storyboard */; };
@@ -22,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7729246A22DCFF4F00F4A183 /* PracticeRouteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeRouteViewController.swift; sourceTree = "<group>"; };
+		7729246C22DD2E3700F4A183 /* stringtodate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stringtodate.swift; sourceTree = "<group>"; };
 		77EC7E2C22D5163A007A5E30 /* BackpackingItineraryPlannerv2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BackpackingItineraryPlannerv2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77EC7E2F22D5163A007A5E30 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77EC7E3122D5163A007A5E30 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -97,6 +101,7 @@
 				77EC7E4F22D69F6E007A5E30 /* Location.swift */,
 				77EC7E3322D5163A007A5E30 /* Main.storyboard */,
 				77EC7E5522D7F755007A5E30 /* StartCityEndCityViewController.swift */,
+				7729246A22DCFF4F00F4A183 /* PracticeRouteViewController.swift */,
 				77EC7E5722D802C1007A5E30 /* startDateEndDateViewController.swift */,
 				77EC7E5122D7D43E007A5E30 /* TripNameViewController.swift */,
 				77EC7E5322D7D8CB007A5E30 /* Trip.swift */,
@@ -111,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				77EC7E4722D516AA007A5E30 /* getCityLatAndLongFunc.swift */,
+				7729246C22DD2E3700F4A183 /* stringtodate.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -258,11 +264,13 @@
 				77EC7E3222D5163A007A5E30 /* ViewController.swift in Sources */,
 				77EC7E5222D7D43E007A5E30 /* TripNameViewController.swift in Sources */,
 				77EC7E4822D516AA007A5E30 /* getCityLatAndLongFunc.swift in Sources */,
+				7729246B22DCFF4F00F4A183 /* PracticeRouteViewController.swift in Sources */,
 				77EC7E3022D5163A007A5E30 /* AppDelegate.swift in Sources */,
 				77EC7E5622D7F755007A5E30 /* StartCityEndCityViewController.swift in Sources */,
 				77EC7E5422D7D8CB007A5E30 /* Trip.swift in Sources */,
 				77EC7E5022D69F6E007A5E30 /* Location.swift in Sources */,
 				77EC7E5822D802C1007A5E30 /* startDateEndDateViewController.swift in Sources */,
+				7729246D22DD2E3700F4A183 /* stringtodate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

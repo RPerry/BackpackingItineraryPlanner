@@ -15,19 +15,33 @@ class TripNameViewController: UIViewController, UITextFieldDelegate {
     
     var tripName = ""
     
+     var newTrip = Trip(tripName: "", startCity: nil, endCity: nil, startDate: nil, endDate: nil, cities: nil, budget: nil, activityCategories: nil, numberofDays: nil)
+    
     @IBAction func tripNameOnClick(_ sender: Any) {
         tripName = tripNameTextField.text!
         print(tripName)
-        var newTrip = Trip(tripName: tripName, startCity: nil, endCity: nil, startDate: nil, endDate: nil, cities: nil, budget: nil, activityCategories: nil)
+        
+        newTrip?.tripName = tripName
+        
+        self.performSegue(withIdentifier: "tripnameVCtostartcityendcityVC", sender: self)
     }
     
     @objc func viewTapped(){
         self.view.endEditing(true)
     }
     
+//    newcode - test
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "tripnameVCtostartcityendcityVC"){
+            let displayVC = segue.destination as! StartCityEndCityViewController
+            displayVC.tripName = newTrip?.tripName
+            displayVC.trip = newTrip
+        }
+    }
+    
+    //        oldcode
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         tripNameTextField.delegate = self
         

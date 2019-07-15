@@ -23,10 +23,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var cityTripLabel: UILabel!
     
     var userInputCity = ""
+    var userInputCityForAPI = ""
     @IBAction func citySubmitOnClick(_ sender: Any) {
         userInputCity = cityTextField.text!
         checkForSpace(userCity: userInputCity)
-        getCityLatAndLong(city: userInputCity, countryCode: "US", onComplete: { location -> Void in
+        getCityLatAndLong(city: userInputCityForAPI, title: userInputCity.capitalized, countryCode: "US", onComplete: { location -> Void in
             if let loc = location {
                 self.locations.append(loc)
                 self.addAnnotation(location: loc)
@@ -35,15 +36,33 @@ class ViewController: UIViewController, UITextFieldDelegate {
         cityTextField.text = ""
     }
     
+    
+    @IBAction func tripCitiesonClick(_ sender: Any) {
+        trip?.cities = locations
+        self.performSegue(withIdentifier: "tripCitiesVCtotravelDatesVC", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "tripCitiesVCtotravelDatesVC"){
+            let displayVC = segue.destination as! startDateEndDateViewController
+            displayVC.tripName = trip?.tripName
+            displayVC.trip = trip
+        }
+    }
+    
+    
     var locations: [Location] = [
-        Location(title: "New York, NY",    latitude: 40.713054, longitude: -74.007228)!,
-        Location(title: "Los Angeles, CA", latitude: 34.052238, longitude: -118.243344)!,
-        Location(title: "Chicago, IL",     latitude: 41.883229, longitude: -87.632398)!
+        Location(title: "New York",    latitude: 40.713054, longitude: -74.007228)!,
+        Location(title: "Los Angeles", latitude: 34.052238, longitude: -118.243344)!,
+        Location(title: "Chicago",     latitude: 41.883229, longitude: -87.632398)!
     ]
     
     @objc func viewTapped(){
         self.view.endEditing(true)
     }
+    
+    var tripName: String?
+    var trip: Trip?
     
     
     override func viewDidLoad() {
@@ -90,9 +109,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
     func checkForSpace(userCity: String) {
         if userCity.hasPrefix(" ") {
             userInputCity = String(userInputCity.dropFirst())
+            userInputCityForAPI = String(userInputCity.dropFirst())
         } else if userCity.hasSuffix(" ") {
             userInputCity = String(userInputCity.dropLast())
+            userInputCityForAPI = String(userInputCity.dropLast())
         }
+        
+        userInputCityForAPI = String(userInputCity.map {
+            $0 == " " ? "_" : $0
+        })
+        print(userInputCityForAPI)
     }
 
 }

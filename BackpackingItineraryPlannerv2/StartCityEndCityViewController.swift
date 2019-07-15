@@ -17,14 +17,32 @@ class StartCityEndCityViewController: UIViewController, UITextFieldDelegate {
     @IBAction func startEndCityOnClick(_ sender: Any) {
         viewTapped()
     }
+    @IBOutlet weak var tripNameLabel: UILabel!
     
     @IBAction func endCityAsStartCityOnClick(_ sender: Any) {
         endCityTextField.text = startCityTextField.text
     }
     
+    @IBAction func startCityendCityonClick(_ sender: Any) {
+        trip?.startCity = startCityTextField.text
+        trip?.endCity = endCityTextField.text
+        self.performSegue(withIdentifier: "startcityendcityVCtocitiesVC", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "startcityendcityVCtocitiesVC"){
+            let displayVC = segue.destination as! ViewController
+            displayVC.tripName = trip?.tripName
+            displayVC.trip = trip
+        }
+    }
+    
     @objc func viewTapped(){
         self.view.endEditing(true)
     }
+    
+    var tripName: String?
+    var trip: Trip?
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == startCityTextField {
@@ -39,6 +57,7 @@ class StartCityEndCityViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
          super.viewDidLoad()
         
+        tripNameLabel.text = tripName
         
         startCityTextField.delegate = self
         endCityTextField.delegate = self

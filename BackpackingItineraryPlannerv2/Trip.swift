@@ -17,8 +17,9 @@ class Trip {
     var cities: Array<Location>?
     var budget: Double?
     var activityCategories: Array<String>?
+    var numberofDays: Double?
     
-    init?(tripName: String, startCity: String?, endCity: String?, startDate: Date?, endDate: Date?, cities: Array<Location>?, budget: Double?, activityCategories: Array<String>?) {
+    init?(tripName: String, startCity: String?, endCity: String?, startDate: Date?, endDate: Date?, cities: Array<Location>?, budget: Double?, activityCategories: Array<String>?, numberofDays: Double?) {
 //        if tripName.isEmpty {
 //            return nil
 //        }
@@ -30,5 +31,6 @@ class Trip {
         self.cities = cities
         self.budget = budget
         self.activityCategories = activityCategories
+        self.numberofDays = numberofDays
     }
 }
