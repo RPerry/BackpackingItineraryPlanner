@@ -7,6 +7,7 @@
 //
 
 import UIKit
+//import FirebaseDatabase
 
 class StartCityEndCityViewController: UIViewController, UITextFieldDelegate {
     
@@ -26,6 +27,10 @@ class StartCityEndCityViewController: UIViewController, UITextFieldDelegate {
     @IBAction func startCityendCityonClick(_ sender: Any) {
         trip?.startCity = startCityTextField.text
         trip?.endCity = endCityTextField.text
+        
+//        ref.child("id2/startCity").setValue("\(startCityTextField.text!)")
+//        ref.child("id2/endCity").setValue("\(endCityTextField.text!)")
+        
         self.performSegue(withIdentifier: "startcityendcityVCtocitiesVC", sender: self)
     }
     
@@ -44,6 +49,8 @@ class StartCityEndCityViewController: UIViewController, UITextFieldDelegate {
     var tripName: String?
     var trip: Trip?
     
+//    let ref = Database.database().reference()
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == startCityTextField {
             textField.resignFirstResponder()
@@ -56,6 +63,12 @@ class StartCityEndCityViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
          super.viewDidLoad()
+        
+//        ref.child("id2").observeSingleEvent(of: .value)
+//        {(snapshot) in
+//            let data = snapshot.value as? [String:Any]
+//            print(data)
+//        }
         
         tripNameLabel.text = tripName
         

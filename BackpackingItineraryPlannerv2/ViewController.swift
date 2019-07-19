@@ -10,8 +10,8 @@ import UIKit
 import MapKit
 import Alamofire
 import SwiftyJSON
+import FirebaseDatabase
 //import GoogleMaps
-
 
 
 class ViewController: UIViewController, UITextFieldDelegate {
@@ -64,9 +64,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var tripName: String?
     var trip: Trip?
     
+    let ref = Database.database().reference()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        ref.child("id2").observeSingleEvent(of: .value)
+        {(snapshot) in
+            let data = snapshot.value as? [String:Any]
+            print(data)
+        }
         
         
         cityTextField.delegate = self

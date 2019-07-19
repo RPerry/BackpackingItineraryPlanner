@@ -9,6 +9,14 @@
 /* Begin PBXBuildFile section */
 		7729246B22DCFF4F00F4A183 /* PracticeRouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7729246A22DCFF4F00F4A183 /* PracticeRouteViewController.swift */; };
 		7729246D22DD2E3700F4A183 /* stringtodate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7729246C22DD2E3700F4A183 /* stringtodate.swift */; };
+		7729246F22DD355100F4A183 /* BudgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7729246E22DD355100F4A183 /* BudgetViewController.swift */; };
+		7729247122DD394500F4A183 /* iOSDropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7729247022DD394500F4A183 /* iOSDropDown.framework */; };
+		7729247322DF8FCA00F4A183 /* ActivityCategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7729247222DF8FCA00F4A183 /* ActivityCategoriesViewController.swift */; };
+		7729247522DFA04600F4A183 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7729247422DFA04600F4A183 /* GoogleService-Info.plist */; };
+		7729247922E1447200F4A183 /* Hotel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7729247822E1447200F4A183 /* Hotel.swift */; };
+		7729247B22E146E900F4A183 /* cities.json in Resources */ = {isa = PBXBuildFile; fileRef = 7729247A22E146E900F4A183 /* cities.json */; };
+		7729247D22E1472200F4A183 /* cityPopulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7729247C22E1472200F4A183 /* cityPopulation.swift */; };
+		7729247F22E23E4100F4A183 /* daysPerCity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7729247E22E23E4100F4A183 /* daysPerCity.swift */; };
 		77EC7E3022D5163A007A5E30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EC7E2F22D5163A007A5E30 /* AppDelegate.swift */; };
 		77EC7E3222D5163A007A5E30 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EC7E3122D5163A007A5E30 /* ViewController.swift */; };
 		77EC7E3522D5163A007A5E30 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77EC7E3322D5163A007A5E30 /* Main.storyboard */; };
@@ -26,6 +34,14 @@
 /* Begin PBXFileReference section */
 		7729246A22DCFF4F00F4A183 /* PracticeRouteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeRouteViewController.swift; sourceTree = "<group>"; };
 		7729246C22DD2E3700F4A183 /* stringtodate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stringtodate.swift; sourceTree = "<group>"; };
+		7729246E22DD355100F4A183 /* BudgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetViewController.swift; sourceTree = "<group>"; };
+		7729247022DD394500F4A183 /* iOSDropDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = iOSDropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7729247222DF8FCA00F4A183 /* ActivityCategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCategoriesViewController.swift; sourceTree = "<group>"; };
+		7729247422DFA04600F4A183 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7729247822E1447200F4A183 /* Hotel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hotel.swift; sourceTree = "<group>"; };
+		7729247A22E146E900F4A183 /* cities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cities.json; sourceTree = "<group>"; };
+		7729247C22E1472200F4A183 /* cityPopulation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cityPopulation.swift; sourceTree = "<group>"; };
+		7729247E22E23E4100F4A183 /* daysPerCity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = daysPerCity.swift; sourceTree = "<group>"; };
 		77EC7E2C22D5163A007A5E30 /* BackpackingItineraryPlannerv2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BackpackingItineraryPlannerv2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77EC7E2F22D5163A007A5E30 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77EC7E3122D5163A007A5E30 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7729247122DD394500F4A183 /* iOSDropDown.framework in Frameworks */,
 				C7C7A6DA066B029401D22C66 /* Pods_BackpackingItineraryPlannerv2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -68,6 +85,7 @@
 		4BB1A2A50F30928F29C45E19 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7729247022DD394500F4A183 /* iOSDropDown.framework */,
 				BEC558CA71848244D18CB4C3 /* Pods_BackpackingItineraryPlannerv2.framework */,
 			);
 			name = Frameworks;
@@ -99,7 +117,10 @@
 				77EC7E2F22D5163A007A5E30 /* AppDelegate.swift */,
 				77EC7E3122D5163A007A5E30 /* ViewController.swift */,
 				77EC7E4F22D69F6E007A5E30 /* Location.swift */,
+				7729247822E1447200F4A183 /* Hotel.swift */,
 				77EC7E3322D5163A007A5E30 /* Main.storyboard */,
+				7729247222DF8FCA00F4A183 /* ActivityCategoriesViewController.swift */,
+				7729246E22DD355100F4A183 /* BudgetViewController.swift */,
 				77EC7E5522D7F755007A5E30 /* StartCityEndCityViewController.swift */,
 				7729246A22DCFF4F00F4A183 /* PracticeRouteViewController.swift */,
 				77EC7E5722D802C1007A5E30 /* startDateEndDateViewController.swift */,
@@ -107,6 +128,7 @@
 				77EC7E5322D7D8CB007A5E30 /* Trip.swift */,
 				77EC7E3622D5163B007A5E30 /* Assets.xcassets */,
 				77EC7E3822D5163B007A5E30 /* LaunchScreen.storyboard */,
+				7729247422DFA04600F4A183 /* GoogleService-Info.plist */,
 				77EC7E3B22D5163B007A5E30 /* Info.plist */,
 			);
 			path = BackpackingItineraryPlannerv2;
@@ -116,7 +138,10 @@
 			isa = PBXGroup;
 			children = (
 				77EC7E4722D516AA007A5E30 /* getCityLatAndLongFunc.swift */,
+				7729247E22E23E4100F4A183 /* daysPerCity.swift */,
 				7729246C22DD2E3700F4A183 /* stringtodate.swift */,
+				7729247C22E1472200F4A183 /* cityPopulation.swift */,
+				7729247A22E146E900F4A183 /* cities.json */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -190,6 +215,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				77EC7E3A22D5163B007A5E30 /* LaunchScreen.storyboard in Resources */,
+				7729247B22E146E900F4A183 /* cities.json in Resources */,
+				7729247522DFA04600F4A183 /* GoogleService-Info.plist in Resources */,
 				77EC7E3722D5163B007A5E30 /* Assets.xcassets in Resources */,
 				77EC7E3522D5163A007A5E30 /* Main.storyboard in Resources */,
 			);
@@ -263,14 +290,19 @@
 			files = (
 				77EC7E3222D5163A007A5E30 /* ViewController.swift in Sources */,
 				77EC7E5222D7D43E007A5E30 /* TripNameViewController.swift in Sources */,
+				7729247F22E23E4100F4A183 /* daysPerCity.swift in Sources */,
 				77EC7E4822D516AA007A5E30 /* getCityLatAndLongFunc.swift in Sources */,
 				7729246B22DCFF4F00F4A183 /* PracticeRouteViewController.swift in Sources */,
 				77EC7E3022D5163A007A5E30 /* AppDelegate.swift in Sources */,
+				7729246F22DD355100F4A183 /* BudgetViewController.swift in Sources */,
 				77EC7E5622D7F755007A5E30 /* StartCityEndCityViewController.swift in Sources */,
+				7729247322DF8FCA00F4A183 /* ActivityCategoriesViewController.swift in Sources */,
 				77EC7E5422D7D8CB007A5E30 /* Trip.swift in Sources */,
 				77EC7E5022D69F6E007A5E30 /* Location.swift in Sources */,
 				77EC7E5822D802C1007A5E30 /* startDateEndDateViewController.swift in Sources */,
+				7729247D22E1472200F4A183 /* cityPopulation.swift in Sources */,
 				7729246D22DD2E3700F4A183 /* stringtodate.swift in Sources */,
+				7729247922E1447200F4A183 /* Hotel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,6 +450,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 777HTR4HUB;
 				INFOPLIST_FILE = BackpackingItineraryPlannerv2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -436,6 +469,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 777HTR4HUB;
 				INFOPLIST_FILE = BackpackingItineraryPlannerv2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

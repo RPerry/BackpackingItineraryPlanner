@@ -6,6 +6,10 @@ target 'BackpackingItineraryPlannerv2' do
 
 pod 'Alamofire', ' ~> 4.7'
 pod 'SwiftyJSON', '~> 4.0'
+pod 'iOSDropDown'
+pod 'Emoji-swift'
+pod 'Firebase/Core'
+pod 'Firebase/Database'
 
 
 pod 'GoogleMaps'

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class TripNameViewController: UIViewController, UITextFieldDelegate {
 
@@ -15,13 +16,17 @@ class TripNameViewController: UIViewController, UITextFieldDelegate {
     
     var tripName = ""
     
-     var newTrip = Trip(tripName: "", startCity: nil, endCity: nil, startDate: nil, endDate: nil, cities: nil, budget: nil, activityCategories: nil, numberofDays: nil)
+    var newTrip = Trip(tripName: "", startCity: nil, endCity: nil, startDate: nil, endDate: nil, cities: nil, budget: nil, activityCategories: nil, duration: nil, locations: nil, transportation: nil, price: nil)
+    
+//    let ref = Database.database().reference()
     
     @IBAction func tripNameOnClick(_ sender: Any) {
         tripName = tripNameTextField.text!
         print(tripName)
         
         newTrip?.tripName = tripName
+        
+//        ref.child("id2").setValue(["tripName":"\(tripName)", "startCity": nil, "endCity": nil, "startDate": nil, "cities": nil, "budget": nil, "activityCategories": nil, "duration": nil])
         
         self.performSegue(withIdentifier: "tripnameVCtostartcityendcityVC", sender: self)
     }
@@ -30,7 +35,7 @@ class TripNameViewController: UIViewController, UITextFieldDelegate {
         self.view.endEditing(true)
     }
     
-//    newcode - test
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "tripnameVCtostartcityendcityVC"){
             let displayVC = segue.destination as! StartCityEndCityViewController
@@ -39,7 +44,6 @@ class TripNameViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    //        oldcode
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -48,6 +52,9 @@ class TripNameViewController: UIViewController, UITextFieldDelegate {
         let tapRecogniser = UITapGestureRecognizer()
         tapRecogniser.addTarget(self, action: #selector(self.viewTapped))
         self.view.addGestureRecognizer(tapRecogniser)
+        
+//        deletelater!!!
+        print(cityPopulation(userCity: "New York"))
     }
     
 }
