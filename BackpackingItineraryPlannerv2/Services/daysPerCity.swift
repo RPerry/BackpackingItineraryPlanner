@@ -15,7 +15,7 @@ func daysPerCity(cities: Array<Location>, trip: Trip) -> Dictionary<String, Int>
     var numberofSmallCities = 0
     var dayCityDict: [String:Int] = [:]
     
-    if (trip.duration)! == Double((trip.cities!.count)) {
+    if trip.duration == trip.cities!.count {
         for city in cities {
             dayCityDict[city.title] = 1
         }
@@ -38,10 +38,28 @@ func daysPerCity(cities: Array<Location>, trip: Trip) -> Dictionary<String, Int>
         }
     }
     
-//    if population > 1500000 {
-//        trip.duration
-//        numberofcities
-//
-//    }
+    if numberofSmallCities == 0 && numberofMidCities == 0 {
+        let days = trip.duration! / numberofBigCities
+        for city in cities {
+            dayCityDict[city.title] = days
+        }
+    } else if numberofBigCities == 0 && numberofSmallCities == 0 {
+        let days = trip.duration! / numberofMidCities
+        for city in cities {
+            dayCityDict[city.title] = days
+        }
+    } else if numberofBigCities == 0 && numberofMidCities == 0 {
+        let days = trip.duration! / numberofSmallCities
+        for city in cities {
+            dayCityDict[city.title] = days
+        }
+//    } else if {
+        
+    }
+    
+    
+    
+    
+
     return dayCityDict
 }

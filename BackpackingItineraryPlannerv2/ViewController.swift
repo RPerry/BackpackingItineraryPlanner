@@ -52,9 +52,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     
     var locations: [Location] = [
-        Location(title: "New York",    latitude: 40.713054, longitude: -74.007228)!,
-        Location(title: "Los Angeles", latitude: 34.052238, longitude: -118.243344)!,
-        Location(title: "Chicago",     latitude: 41.883229, longitude: -87.632398)!
+//        Location(title: "New York",    latitude: 40.713054, longitude: -74.007228)!,
+//        Location(title: "Los Angeles", latitude: 34.052238, longitude: -118.243344)!,
+//        Location(title: "Chicago",     latitude: 41.883229, longitude: -87.632398)!
     ]
     
     @objc func viewTapped(){

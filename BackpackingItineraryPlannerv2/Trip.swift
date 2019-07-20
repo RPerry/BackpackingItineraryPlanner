@@ -17,12 +17,12 @@ class Trip {
     var cities: Array<Location>?
     var budget: Int?
     var activityCategories: Array<String>?
-    var duration: Double?
+    var duration: Int?
     var locations: Array<Dictionary<String, Any>>?
-    var transportation: Array<Dictionary<String, Any>>?
+    var transportation: Array<Transportation>?
     var price: Double?
     
-    init?(tripName: String, startCity: String?, endCity: String?, startDate: Date?, endDate: Date?, cities: Array<Location>?, budget: Int?, activityCategories: Array<String>?, duration: Double?, locations: Array<Dictionary<String, Any>>?, transportation:Array<Dictionary<String, Any>>?, price: Double?) {
+    init?(tripName: String, startCity: String?, endCity: String?, startDate: Date?, endDate: Date?, cities: Array<Location>?, budget: Int?, activityCategories: Array<String>?, duration: Int?, locations: Array<Dictionary<String, Any>>?, transportation:Array<Transportation>?, price: Double?) {
 //        if tripName.isEmpty {
 //            return nil
 //        }

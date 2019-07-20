@@ -32,9 +32,9 @@ class startDateEndDateViewController: UIViewController, UITextFieldDelegate {
         let diffInDays = Calendar.current.dateComponents([.day], from: trip!.startDate!, to: trip!.endDate!).day!
 
 //        Should the number of days be the difference in days or days plus one???? 8/15-8/20 is 5 or 6 days??
-        trip?.duration = Double(diffInDays) + 1.0
+        trip?.duration = Int(diffInDays) + 1
         
-        if (trip!.duration)! < Double((trip!.cities!.count)) {
+        if (trip!.duration)! < trip!.cities!.count {
             shortDurationWarningLabel.text = "Trip Duration Is Not Long Enough to Visit All Cities"
         } else {
             self.performSegue(withIdentifier: "traveldatesVCtopracticerouteVC", sender: self)

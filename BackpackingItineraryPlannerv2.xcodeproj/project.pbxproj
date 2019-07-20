@@ -17,6 +17,11 @@
 		7729247B22E146E900F4A183 /* cities.json in Resources */ = {isa = PBXBuildFile; fileRef = 7729247A22E146E900F4A183 /* cities.json */; };
 		7729247D22E1472200F4A183 /* cityPopulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7729247C22E1472200F4A183 /* cityPopulation.swift */; };
 		7729247F22E23E4100F4A183 /* daysPerCity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7729247E22E23E4100F4A183 /* daysPerCity.swift */; };
+		7729248122E24C4A00F4A183 /* getTransportation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7729248022E24C4A00F4A183 /* getTransportation.swift */; };
+		7729248322E24CA700F4A183 /* Transportation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7729248222E24CA700F4A183 /* Transportation.swift */; };
+		7729248522E28DBE00F4A183 /* getAllCitiesTransportation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7729248422E28DBE00F4A183 /* getAllCitiesTransportation.swift */; };
+		7729248722E293BC00F4A183 /* getActivities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7729248622E293BC00F4A183 /* getActivities.swift */; };
+		7729248922E2940900F4A183 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7729248822E2940900F4A183 /* Activity.swift */; };
 		77EC7E3022D5163A007A5E30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EC7E2F22D5163A007A5E30 /* AppDelegate.swift */; };
 		77EC7E3222D5163A007A5E30 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EC7E3122D5163A007A5E30 /* ViewController.swift */; };
 		77EC7E3522D5163A007A5E30 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77EC7E3322D5163A007A5E30 /* Main.storyboard */; };
@@ -42,6 +47,11 @@
 		7729247A22E146E900F4A183 /* cities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cities.json; sourceTree = "<group>"; };
 		7729247C22E1472200F4A183 /* cityPopulation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cityPopulation.swift; sourceTree = "<group>"; };
 		7729247E22E23E4100F4A183 /* daysPerCity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = daysPerCity.swift; sourceTree = "<group>"; };
+		7729248022E24C4A00F4A183 /* getTransportation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getTransportation.swift; sourceTree = "<group>"; };
+		7729248222E24CA700F4A183 /* Transportation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transportation.swift; sourceTree = "<group>"; };
+		7729248422E28DBE00F4A183 /* getAllCitiesTransportation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getAllCitiesTransportation.swift; sourceTree = "<group>"; };
+		7729248622E293BC00F4A183 /* getActivities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getActivities.swift; sourceTree = "<group>"; };
+		7729248822E2940900F4A183 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		77EC7E2C22D5163A007A5E30 /* BackpackingItineraryPlannerv2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BackpackingItineraryPlannerv2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77EC7E2F22D5163A007A5E30 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77EC7E3122D5163A007A5E30 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -118,11 +128,13 @@
 				77EC7E3122D5163A007A5E30 /* ViewController.swift */,
 				77EC7E4F22D69F6E007A5E30 /* Location.swift */,
 				7729247822E1447200F4A183 /* Hotel.swift */,
+				7729248822E2940900F4A183 /* Activity.swift */,
 				77EC7E3322D5163A007A5E30 /* Main.storyboard */,
 				7729247222DF8FCA00F4A183 /* ActivityCategoriesViewController.swift */,
 				7729246E22DD355100F4A183 /* BudgetViewController.swift */,
 				77EC7E5522D7F755007A5E30 /* StartCityEndCityViewController.swift */,
 				7729246A22DCFF4F00F4A183 /* PracticeRouteViewController.swift */,
+				7729248222E24CA700F4A183 /* Transportation.swift */,
 				77EC7E5722D802C1007A5E30 /* startDateEndDateViewController.swift */,
 				77EC7E5122D7D43E007A5E30 /* TripNameViewController.swift */,
 				77EC7E5322D7D8CB007A5E30 /* Trip.swift */,
@@ -138,7 +150,10 @@
 			isa = PBXGroup;
 			children = (
 				77EC7E4722D516AA007A5E30 /* getCityLatAndLongFunc.swift */,
+				7729248422E28DBE00F4A183 /* getAllCitiesTransportation.swift */,
 				7729247E22E23E4100F4A183 /* daysPerCity.swift */,
+				7729248022E24C4A00F4A183 /* getTransportation.swift */,
+				7729248622E293BC00F4A183 /* getActivities.swift */,
 				7729246C22DD2E3700F4A183 /* stringtodate.swift */,
 				7729247C22E1472200F4A183 /* cityPopulation.swift */,
 				7729247A22E146E900F4A183 /* cities.json */,
@@ -291,15 +306,20 @@
 				77EC7E3222D5163A007A5E30 /* ViewController.swift in Sources */,
 				77EC7E5222D7D43E007A5E30 /* TripNameViewController.swift in Sources */,
 				7729247F22E23E4100F4A183 /* daysPerCity.swift in Sources */,
+				7729248322E24CA700F4A183 /* Transportation.swift in Sources */,
 				77EC7E4822D516AA007A5E30 /* getCityLatAndLongFunc.swift in Sources */,
 				7729246B22DCFF4F00F4A183 /* PracticeRouteViewController.swift in Sources */,
 				77EC7E3022D5163A007A5E30 /* AppDelegate.swift in Sources */,
 				7729246F22DD355100F4A183 /* BudgetViewController.swift in Sources */,
 				77EC7E5622D7F755007A5E30 /* StartCityEndCityViewController.swift in Sources */,
 				7729247322DF8FCA00F4A183 /* ActivityCategoriesViewController.swift in Sources */,
+				7729248922E2940900F4A183 /* Activity.swift in Sources */,
+				7729248722E293BC00F4A183 /* getActivities.swift in Sources */,
 				77EC7E5422D7D8CB007A5E30 /* Trip.swift in Sources */,
+				7729248122E24C4A00F4A183 /* getTransportation.swift in Sources */,
 				77EC7E5022D69F6E007A5E30 /* Location.swift in Sources */,
 				77EC7E5822D802C1007A5E30 /* startDateEndDateViewController.swift in Sources */,
+				7729248522E28DBE00F4A183 /* getAllCitiesTransportation.swift in Sources */,
 				7729247D22E1472200F4A183 /* cityPopulation.swift in Sources */,
 				7729246D22DD2E3700F4A183 /* stringtodate.swift in Sources */,
 				7729247922E1447200F4A183 /* Hotel.swift in Sources */,

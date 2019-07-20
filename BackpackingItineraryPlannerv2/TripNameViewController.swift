@@ -54,7 +54,7 @@ class TripNameViewController: UIViewController, UITextFieldDelegate {
         self.view.addGestureRecognizer(tapRecogniser)
         
 //        deletelater!!!
-        print(cityPopulation(userCity: "New York"))
+//        print(cityPopulation(userCity: "New York"))
     }
     
 }
