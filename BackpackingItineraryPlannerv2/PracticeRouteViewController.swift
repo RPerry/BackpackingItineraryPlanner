@@ -30,14 +30,14 @@ class PracticeRouteViewController: UIViewController, UITextFieldDelegate {
 
     var tripName: String?
     var trip: Trip?
-    
+
     @IBOutlet weak var mapView: MKMapView!
-    
-    
+
+
     @IBAction func toNextPageOnClick(_ sender: Any) {
         self.performSegue(withIdentifier: "practicerouteVCtobudgetVC", sender: self)
     }
-    
+//
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "practicerouteVCtobudgetVC"){
             let displayVC = segue.destination as! BudgetViewController
@@ -45,15 +45,15 @@ class PracticeRouteViewController: UIViewController, UITextFieldDelegate {
             displayVC.trip = trip
         }
     }
-    
-    
+
+
     override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
-    
+
     let sourceLocation = CLLocationCoordinate2D(latitude:39.173209 , longitude: -94.593933)
     let destinationLocation = CLLocationCoordinate2D(latitude:38.643172 , longitude: -90.177429)
-        
+
 }
 
 override func didReceiveMemoryWarning() {

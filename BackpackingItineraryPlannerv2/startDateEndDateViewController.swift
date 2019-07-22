@@ -30,7 +30,8 @@ class startDateEndDateViewController: UIViewController, UITextFieldDelegate {
         trip?.endDate = getDate(dateString: endDateTextField.text ?? "00/00/00")
         
         let diffInDays = Calendar.current.dateComponents([.day], from: trip!.startDate!, to: trip!.endDate!).day!
-
+        print("next is diffindays")
+        print(diffInDays)
 //        Should the number of days be the difference in days or days plus one???? 8/15-8/20 is 5 or 6 days??
         trip?.duration = Int(diffInDays) + 1
         

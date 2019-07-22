@@ -56,10 +56,19 @@ class ActivityCategoriesViewController: UIViewController, UITextFieldDelegate {
     @IBAction func activityCategoriesonClick(_ sender: Any) {
 //        Variables
         var cost = 0.0
+//        cost not including activities
         
 //        Transportation!!!
         
         trip?.transportation = getAllCitiesTransportation(allCities: trip!.cities!, budget: trip!.budget!)
+        
+//        Activities!!!!
+        daysPerCity(cities: trip!.cities!, trip: trip!)
+        
+//        for city in trip!.cities! {
+//           city.activities = getActivities(city: city.title, duration: city.duration, activityCategories: trip!.activityCategories!, budget: trip!.budget!)
+//        }
+        
         
 //        for trip in trip!.transportation! {
 //            cost += trip.cost

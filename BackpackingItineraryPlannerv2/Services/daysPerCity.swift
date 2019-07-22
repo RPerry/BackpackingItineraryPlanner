@@ -8,58 +8,97 @@
 
 import Foundation
 
-func daysPerCity(cities: Array<Location>, trip: Trip) -> Dictionary<String, Int> {
-    var userCitiesPopulation: [String:Double] = [:]
-    var numberofBigCities = 0
-    var numberofMidCities = 0
-    var numberofSmallCities = 0
-    var dayCityDict: [String:Int] = [:]
+func daysPerCity(cities: Array<Location>, trip: Trip) -> Void {
+    print("in days per city")
+    print(trip.duration)
     
     if trip.duration == trip.cities!.count {
         for city in cities {
-            dayCityDict[city.title] = 1
+            city.duration = 1
         }
-        return dayCityDict
+        return
+    }
+        
+    for city in cities {
+           let pop = cityPopulation(userCity: city.title)
+            if pop > 900000 {
+                city.locationSize = 3
+            } else if pop > 600000 && pop < 900000 {
+                city.locationSize = 2
+            } else {
+                city.locationSize = 1
+            }
     }
     
+    var cityPoints = 0
+    var daysPerPoint = 0.0
+    var extraDays = 0.0
     
     for city in cities {
-        userCitiesPopulation[city.title] = cityPopulation(userCity: city.title)
+        cityPoints += city.locationSize
     }
     
-    for (city, pop) in userCitiesPopulation {
-       if pop > 900000 {
-            numberofBigCities += 1
-       }
-       else if pop > 600000 && pop < 900000 {
-            numberofMidCities += 1
-       } else {
-            numberofSmallCities += 1
-        }
+    daysPerPoint = Double(trip.duration! / cityPoints)
+    
+    var daysDict: [String: Double] = [:]
+    
+    for city in cities {
+        daysDict[city.title] = Double(city.locationSize) * daysPerPoint
     }
     
-    if numberofSmallCities == 0 && numberofMidCities == 0 {
-        let days = trip.duration! / numberofBigCities
-        for city in cities {
-            dayCityDict[city.title] = days
-        }
-    } else if numberofBigCities == 0 && numberofSmallCities == 0 {
-        let days = trip.duration! / numberofMidCities
-        for city in cities {
-            dayCityDict[city.title] = days
-        }
-    } else if numberofBigCities == 0 && numberofMidCities == 0 {
-        let days = trip.duration! / numberofSmallCities
-        for city in cities {
-            dayCityDict[city.title] = days
-        }
-//    } else if {
+    for (city, days) in daysDict {
+        var overWholeDay = days.truncatingRemainder(dividingBy: 1)
+        extraDays += overWholeDay
+        var newDays = days - overWholeDay
+        daysDict.updateValue(newDays, forKey: city)
         
+        for location in cities {
+            for (city, days) in daysDict {
+                if location.title == city {
+                    location.duration = Int(days)
+                }
+            }
+        }
+    }
+
+    for city in cities {
+        if extraDays > 0.0 {
+            if city.locationSize == 3 {
+                city.duration += 1
+                extraDays -= 1
+            }
+        }
     }
     
+    for city in cities {
+        if extraDays > 0.0 {
+            if city.locationSize == 2 {
+                city.duration += 1
+                extraDays -= 1
+            }
+        }
+    }
     
-    
+    for city in cities {
+        if extraDays > 0.0 {
+            if city.locationSize == 3 {
+                city.duration += 1
+                extraDays -= 1
+            }
+        }
+    }
+
+    print("This is the trip duration \(trip.duration)")
+    for city in cities {
+        print(city.duration)
+    }
+}
+//    Loop through once and give an extra day to big cities as long as there are extra days
+//    If all big cities have gotten an extra day then mid cities get a day.
+//    If all mid cities have gotten an extra day then small cities get a day.
     
 
-    return dayCityDict
-}
+//    Divide number of days by total city points
+//    Assign modulo to bigger cities
+
+

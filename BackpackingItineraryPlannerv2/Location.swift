@@ -9,13 +9,14 @@
 import UIKit
 
 class Location {
-    let title: String
-    let latitude: Double
-    let longitude: Double
-    let locationSize: Int
-    let duration: Int
+    var title: String
+    var latitude: Double
+    var longitude: Double
+    var locationSize: Int
+    var duration: Int
+    var activities: Array<Activity>?
     
-    init?(title: String, latitude: Double, longitude: Double, locationSize: Int, duration: Int ) {
+    init?(title: String, latitude: Double, longitude: Double, locationSize: Int, duration: Int, activities: Array<Activity>?) {
         if title.isEmpty {
             return nil
         }
@@ -24,5 +25,6 @@ class Location {
         self.longitude = longitude
         self.locationSize = locationSize
         self.duration = duration
+        self.activities = activities
     }
 }

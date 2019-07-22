@@ -11,16 +11,20 @@ import UIKit
 class Activity {
     let name: String
     let activityType: String
-    let infoTag: String
+    let infoTags: Array<String>
     let lat: Double
     let long: Double
+    let photoUrl: String
+    let priceLevel: Double
     
-    init?(name: String, activityType: String, infoTag: String, lat: Double, long: Double) {
+    init?(name: String, activityType: String, infoTags: Array<String>, lat: Double, long: Double, photoURL: String, priceLevel: Double) {
         
         self.name = name
         self.activityType = activityType
-        self.infoTag = infoTag
+        self.infoTags = infoTags
         self.lat = lat
         self.long = long
+        self.photoUrl = photoURL
+        self.priceLevel = priceLevel
     }
 }

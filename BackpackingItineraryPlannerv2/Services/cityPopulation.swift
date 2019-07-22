@@ -10,8 +10,8 @@ import Foundation
 import SwiftyJSON
 
 
-func cityPopulation(userCity: String) -> Double? {
-    var population:Double
+func cityPopulation(userCity: String) -> Int {
+    var population:Int
     guard let path = Bundle.main.path(forResource: "cities", ofType: "json") else { return 2 }
     let url = URL(fileURLWithPath: path)
     
@@ -27,7 +27,7 @@ func cityPopulation(userCity: String) -> Double? {
 //            print(cityName)
             let cityPopulation = cityDict["population"] as? String
             if cityName == userCity {
-                population = Double(cityPopulation!) as! Double
+                population = Int(cityPopulation!)!
                 print(population)
                 return population
             }
