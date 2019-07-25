@@ -64,11 +64,10 @@ func getActivities(city: String, duration: Int, activityCategories: Array<String
                             tagArray.append(infoTag2!)
 
                             let activity = Activity(name: name.rawString()!, activityType: category, infoTags: tagArray, lat: Double(lat!) as! Double, long: Double(long!) as! Double, rating: Double(rating!) as! Double)
-                            print("data from activity object")
-                            print(activity!.rating)
+//                            print("data from activity object")
                             activitiesArray.append(activity!)
                             i += 1
-                            print(activitiesArray)
+//                            print(activitiesArray)
                         }
                     }
             }

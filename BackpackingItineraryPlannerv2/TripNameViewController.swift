@@ -45,7 +45,6 @@ class TripNameViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         tripNameTextField.delegate = self
         
         let tapRecogniser = UITapGestureRecognizer()

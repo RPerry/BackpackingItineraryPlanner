@@ -18,12 +18,9 @@ func getCityLatAndLong(city: String, title: String, countryCode: String, onCompl
     .responseJSON { (responseData) -> Void in
             if((responseData.result.value) != nil) {
                 let swiftyJsonVar = JSON(responseData.result.value!)
-//                    print(swiftyJsonVar)
-//                print(swiftyJsonVar["results"][0]["geometry"]["lat"])
-                //print(swiftyJsonVar["results"][0]["geometry"]["lng"])
                 let lat = swiftyJsonVar["results"][0]["geometry"]["lat"].double
                 let long = swiftyJsonVar["results"][0]["geometry"]["lng"].double
-                let location = Location(title: title, latitude: lat ?? 0 , longitude: long ?? 0, locationSize: 0, duration: 0, activities: nil, hotel: nil)
+                let location = Location(title: title, latitude: lat ?? 0 , longitude: long ?? 0, locationSize: 0, duration: 0, startDate: nil, endDate: nil, activities: nil, hotel: nil)
                 
                 onComplete(location)
             }

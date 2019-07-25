@@ -37,6 +37,10 @@ class BudgetViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print("trip start date: \(trip?.startDate)")
+        print("trip end date: \(trip?.endDate)")
+        print("trip duration: \(trip!.duration)")
+        
         budgetdropdown.selectedRowColor = .lightGray
         budgetdropdown.optionArray = ["💲", "💲💲", "💲💲💲"]
         budgetdropdown.optionIds = [1,2,3]

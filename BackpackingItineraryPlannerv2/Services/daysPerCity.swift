@@ -41,11 +41,14 @@ func daysPerCity(cities: Array<Location>, trip: Trip, onComplete: @escaping () -
             }
             
             for (city, days) in daysDict {
-                var overWholeDay = days.truncatingRemainder(dividingBy: 1)
-                extraDays += overWholeDay
-                var newDays = days - overWholeDay
-                daysDict.updateValue(newDays, forKey: city)
-                
+                if days >= 1 {
+                    var overWholeDay = days.truncatingRemainder(dividingBy: 1)
+                    extraDays += overWholeDay
+                    var newDays = days - overWholeDay
+                    daysDict.updateValue(newDays, forKey: city)
+                } else if days < 1 {
+                    daysDict.updateValue(1.0, forKey: city)
+                }
                 for location in cities {
                     for (city, days) in daysDict {
                         if location.title == city {
@@ -82,6 +85,10 @@ func daysPerCity(cities: Array<Location>, trip: Trip, onComplete: @escaping () -
                 }
             }
         }
+    for city in cities {
+        print("days in \(city): \(city.duration)")
+        print("location size of \(city): \(city.locationSize)")
+    }
     onComplete()
 }
 

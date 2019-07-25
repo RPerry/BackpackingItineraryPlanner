@@ -14,10 +14,12 @@ class Location {
     var longitude: Double
     var locationSize: Int
     var duration: Int
+    var startDate: Date?
+    var endDate: Date?
     var activities: Array<Activity>?
     var hotel: Hotel?
     
-    init?(title: String, latitude: Double, longitude: Double, locationSize: Int, duration: Int, activities: Array<Activity>?, hotel: Hotel?) {
+    init?(title: String, latitude: Double, longitude: Double, locationSize: Int, duration: Int, startDate: Date?, endDate: Date?, activities: Array<Activity>?, hotel: Hotel?) {
         if title.isEmpty {
             return nil
         }
@@ -26,6 +28,8 @@ class Location {
         self.longitude = longitude
         self.locationSize = locationSize
         self.duration = duration
+        self.startDate = startDate
+        self.endDate = endDate
         self.activities = activities
         self.hotel = hotel
     }

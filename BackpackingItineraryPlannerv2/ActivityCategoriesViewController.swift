@@ -62,15 +62,21 @@ class ActivityCategoriesViewController: UIViewController, UITextFieldDelegate {
         trip?.transportation = getAllCitiesTransportation(allCities: trip!.cities!, budget: trip!.budget!)
         
 //        Activities!!!!
-        print("before days per city")
         daysPerCity(cities: trip!.cities!, trip: trip!, onComplete: {
-            print("in days per city")
+            getDatesForLocations(cities: self.trip!.cities!, tripStartDate: self.trip!.startDate!, tripEndDate: self.trip!.endDate!)
+            
             for city in self.trip!.cities! {
-                print("before get activities function")
-//                print(city.title)
-//                print(self.trip!.activityCategories!)
+
                 city.activities = getActivities(city: city.title, duration: city.duration, activityCategories: self.trip!.activityCategories!, budget: self.trip!.budget!)
-//                city.hotel = getHotel(city: city, checkinDate: , checkoutDate: <#T##Date#>, locationSize: city.locationSize, budget: trip?.budget)
+                
+                let calendar = Calendar.current
+                let checkoutDate = calendar.date(byAdding: .day, value: 1, to: city.endDate!)
+               
+                if city.endDate == self.trip?.endDate {
+                    city.hotel = getHotel(city: city.title, checkinDate: city.startDate!, checkoutDate: city.endDate!, locationSize: city.locationSize, budget: self.trip!.budget!)
+                } else {
+                    city.hotel = getHotel(city: city.title, checkinDate: city.startDate!, checkoutDate: checkoutDate!, locationSize: city.locationSize, budget: self.trip!.budget!)
+                }
             }
         })
         

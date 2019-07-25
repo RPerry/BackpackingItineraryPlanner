@@ -23,18 +23,15 @@ func getHotel(city: String, checkinDate: Date, checkoutDate: Date, locationSize:
         .responseJSON { (responseData) -> Void in
             if((responseData.result.value) != nil) {
                 let swiftyJsonVar = JSON(responseData.result.value!)
-                print(swiftyJsonVar["results"][0])
+//                print(swiftyJsonVar["results"][0])
                 
                 let name = swiftyJsonVar["results"][0]["name"].rawString()
                 let lat = swiftyJsonVar["results"][0]["geometry"]["location"]["lat"].rawString()
                 let long = swiftyJsonVar["results"][0]["geometry"]["location"]["lng"].rawString()
                 var cost = 0.0
-                print("name: \(name)")
-                print("lat: \(lat)")
-                print("long: \(long)")
                 
                 
-                let cityCostDict1 = [
+                let cityCostDict3 = [
                     1: [56.00, 75.00, 63.00, 68.00],
                     2: [84.00, 96.00, 102.00, 105.00],
                     3: [120.00, 138.00, 164.00, 143.00]
@@ -45,22 +42,22 @@ func getHotel(city: String, checkinDate: Date, checkoutDate: Date, locationSize:
                     2: [56.00, 75.00, 63.00, 68.00],
                     3: [84.00, 96.00, 102.00, 105.00]
                 ]
-                let cityCostDict3 = [
+                let cityCostDict1 = [
                     1: [38.00, 34.00, 43.00, 39.00],
                     2: [50.00, 62.00, 43.00, 40.00],
                     3: [76.00, 75.00, 63.00, 68.00]
                 ]
                 
-                if locationSize == 1 {
+                if locationSize == 3 {
                     if budget == 1 {
                         let randomNumber = Int.random(in: 0..<4)
-                        cost = cityCostDict1[1]![randomNumber]
+                        cost = cityCostDict3[1]![randomNumber]
                     } else if budget == 2 {
                         let randomNumber = Int.random(in: 0..<4)
-                        cost = cityCostDict1[2]![randomNumber]
+                        cost = cityCostDict3[2]![randomNumber]
                     } else {
                         let randomNumber = Int.random(in: 0..<4)
-                        cost = cityCostDict1[3]![randomNumber]
+                        cost = cityCostDict3[3]![randomNumber]
                     }
                 } else if locationSize == 2 {
                     if budget == 1 {
@@ -76,13 +73,13 @@ func getHotel(city: String, checkinDate: Date, checkoutDate: Date, locationSize:
                 } else {
                     if budget == 1 {
                         let randomNumber = Int.random(in: 0..<4)
-                        cost = cityCostDict3[1]![randomNumber]
+                        cost = cityCostDict1[1]![randomNumber]
                     } else if budget == 2 {
                         let randomNumber = Int.random(in: 0..<4)
-                        cost = cityCostDict3[2]![randomNumber]
+                        cost = cityCostDict1[2]![randomNumber]
                     } else {
                         let randomNumber = Int.random(in: 0..<4)
-                        cost = cityCostDict3[3]![randomNumber]
+                        cost = cityCostDict1[3]![randomNumber]
                     }
                 }
                 
