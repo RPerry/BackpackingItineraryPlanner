@@ -22,7 +22,6 @@ class TripNameViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func tripNameOnClick(_ sender: Any) {
         tripName = tripNameTextField.text!
-        print(tripName)
         
         newTrip?.tripName = tripName
         

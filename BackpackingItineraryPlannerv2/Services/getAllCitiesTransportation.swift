@@ -13,7 +13,6 @@ func getAllCitiesTransportation(allCities: Array<Location>, budget: Int) -> Arra
     for location in allCities {
         cities.append(location.title)
     }
-    print(cities)
     var tripTransportation = [Transportation]()
     var c1 = 0
     var c2 = 1

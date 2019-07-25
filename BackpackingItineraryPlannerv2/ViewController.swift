@@ -22,12 +22,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var cityTripLabel: UILabel!
     
-    var userInputCity = ""
-    var userInputCityForAPI = ""
+    struct CityLabels {
+        let map: String
+        let api: String
+    }
+    
     @IBAction func citySubmitOnClick(_ sender: Any) {
-        userInputCity = cityTextField.text!
-        checkForSpace(userCity: userInputCity)
-        getCityLatAndLong(city: userInputCityForAPI, title: userInputCity.capitalized, countryCode: "US", onComplete: { location -> Void in
+        let cityLabels = checkForSpace(userCity: cityTextField.text!)
+        getCityLatAndLong(city: cityLabels.api, title: cityLabels.map, countryCode: "US", onComplete: { location -> Void in
             if let loc = location {
                 self.locations.append(loc)
                 self.addAnnotation(location: loc)
@@ -38,8 +40,27 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBAction func tripCitiesonClick(_ sender: Any) {
-        trip?.cities = locations
-        self.performSegue(withIdentifier: "tripCitiesVCtotravelDatesVC", sender: self)
+        
+        let endCityLabels = checkForSpace(userCity: trip!.endCity!)
+        getCityLatAndLong(city: endCityLabels.api, title: endCityLabels.map, countryCode: "US", onComplete: { location -> Void in
+           print("end city location add")
+            if let loc = location {
+                self.locations.append(loc)
+                self.addAnnotation(location: loc)
+                print("location \(loc.title)")
+                self.trip!.cities = self.locations
+                self.performSegue(withIdentifier: "tripCitiesVCtotravelDatesVC", sender: self)
+            }
+        })
+        
+//        for location in locations {
+//            print(location.title)
+//        }
+//        trip!.cities = locations
+//        print(locations)
+        
+        
+//        self.performSegue(withIdentifier: "tripCitiesVCtotravelDatesVC", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -68,11 +89,21 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let startTripLabels = checkForSpace(userCity: trip!.startCity!)
+        getCityLatAndLong(city: startTripLabels.api, title: startTripLabels.map, countryCode: "US", onComplete: { location -> Void in
+            if let loc = location {
+                print("start city location add?")
+                self.locations.append(loc)
+                self.addAnnotation(location: loc)
+            }
+        })
+
+        
         
         ref.child("id2").observeSingleEvent(of: .value)
         {(snapshot) in
             let data = snapshot.value as? [String:Any]
-            print(data)
+//            print(data)
         }
         
         
@@ -113,19 +144,17 @@ class ViewController: UIViewController, UITextFieldDelegate {
         mapView.addAnnotation(annotation)
     }
     
-    func checkForSpace(userCity: String) {
-        if userCity.hasPrefix(" ") {
-            userInputCity = String(userInputCity.dropFirst())
-            userInputCityForAPI = String(userInputCity.dropFirst())
-        } else if userCity.hasSuffix(" ") {
-            userInputCity = String(userInputCity.dropLast())
-            userInputCityForAPI = String(userInputCity.dropLast())
-        }
+    func checkForSpace(userCity: String) -> CityLabels {
+        let mapLabel = userCity.trimmingCharacters(in: .whitespacesAndNewlines).capitalized
         
-        userInputCityForAPI = String(userInputCity.map {
+        let apiLabel = String(mapLabel.map {
             $0 == " " ? "_" : $0
         })
-        print(userInputCityForAPI)
+  
+        return CityLabels(map: mapLabel, api: apiLabel)
     }
 
 }
+
+
+//userinputcityforapi is not updating. Copy checkforspace function and make own variable?

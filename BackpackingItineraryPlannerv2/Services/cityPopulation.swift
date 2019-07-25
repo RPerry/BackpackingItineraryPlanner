@@ -24,11 +24,9 @@ func cityPopulation(userCity: String) -> Int {
         for city in array {
             guard let cityDict = city as? [String: Any] else {return 2}
             let cityName = cityDict["city"] as? String
-//            print(cityName)
             let cityPopulation = cityDict["population"] as? String
             if cityName == userCity {
                 population = Int(cityPopulation!)!
-                print(population)
                 return population
             }
         }

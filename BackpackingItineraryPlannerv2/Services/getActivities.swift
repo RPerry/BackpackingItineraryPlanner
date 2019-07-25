@@ -10,12 +10,12 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-func getActivities(city: String, duration: Int, activityCategories: Array<String>, budget: Int) -> Int {
+func getActivities(city: String, duration: Int, activityCategories: Array<String>, budget: Int) -> Array<Activity> {
     var activitiesArray: [Activity] = []
-    let apiKey = "AIzaSyCDwCpgW1CpePn2Y6fIxuv7tkZ0hqkxyaA"
-    var query = "restaurants"
+    var numberOfActivitiesPerCategory: [String: Double] = [:]
+    let apiKey = googlePlacesAPIKey
+    var extraActivities = 0.0
     var location = ""
-    var i = 1
     
     location = String(city.map {
         $0 == " " ? "+" : $0
@@ -23,33 +23,65 @@ func getActivities(city: String, duration: Int, activityCategories: Array<String
     
     print(location)
     
-//        while i <= duration {
-////            4 activites per day
-////            send request loop the number of activty categories there are - store returns in an array per category
-//            print("in loop")
-//            Alamofire.request("https://maps.googleapis.com/maps/api/place/textsearch/json?query=\(query)+in+\(location)&key=\(apiKey)")
-//                .responseJSON { (responseData) -> Void in
-//                    if((responseData.result.value) != nil) {
-//                        let swiftyJsonVar = JSON(responseData.result.value!)
-//                        print(swiftyJsonVar["results"][0])
-////                        print(swiftyJsonVar["results"][0]["name"])
-//                        var name = swiftyJsonVar["results"][0]["name"]
-//                        var infoTags = swiftyJsonVar["results"][0]["types"]
-//                        var lat = swiftyJsonVar["results"][0]["geometry"]["location"]["lat"]
-//                        var long = swiftyJsonVar["results"][0]["geometry"]["location"]["lng"]
-//                        var photoURL = swiftyJsonVar["results"][0][]["photos"][0]["html_attributions"][0]
-//                        var priceLevel = swiftyJsonVar["results"][0]["price_level"]
-//
-//
-//
-//                        var activity = Activity(name: name.rawString()!, activityType: query, infoTags: infoTags, lat: lat.rawString()!, long: long.rawString()!, photoURL: photoURL.rawString()!, priceLevel: priceLevel)
-//                        activitiesArray.append(activity)
-//                    }
-//            }
-//            i += 1
-//        }
-    return(2)
+    for activity in activityCategories {
+        numberOfActivitiesPerCategory[activity] = Double(duration * 4) / Double(activityCategories.count)
+    }
+    
+    
+    for (category, numberofActivites) in numberOfActivitiesPerCategory {
+        let overWholeActivity = numberofActivites.truncatingRemainder(dividingBy: 1)
+        extraActivities += overWholeActivity
+        let newNumberofActivities = numberofActivites - overWholeActivity
+        numberOfActivitiesPerCategory.updateValue(newNumberofActivities, forKey: category)
+    }
+    
+    if extraActivities > 0.0 {
+        let category = activityCategories[0]
+        var updateNumber = numberOfActivitiesPerCategory[category]
+        updateNumber! += 1.0
+        numberOfActivitiesPerCategory.updateValue(updateNumber!, forKey: category)
+        extraActivities -= 1
+    }
+    
+    print(numberOfActivitiesPerCategory)
+        for (category, numberofActivities) in numberOfActivitiesPerCategory {
+            Alamofire.request("https://maps.googleapis.com/maps/api/place/textsearch/json?query=museum+in+\(city)&key=\(apiKey)")
+                .responseJSON { (responseData) -> Void in
+                    if((responseData.result.value) != nil) {
+                        let swiftyJsonVar = JSON(responseData.result.value!)
+//                        print(swiftyJsonVar)
+                        print("city \(city)")
+                        var i = 0
+                        while i < Int(numberofActivities) {
+                            let name = swiftyJsonVar["results"][i]["name"]
+                            let infoTag1 = swiftyJsonVar["results"][i]["types"][0].rawString()
+                            let infoTag2 = swiftyJsonVar["results"][i]["types"][1].rawString()
+                            let lat = swiftyJsonVar["results"][i]["geometry"]["location"]["lat"].rawString()
+                            let long = swiftyJsonVar["results"][i]["geometry"]["location"]["lng"].rawString()
+                            let rating = swiftyJsonVar["results"][i]["rating"].rawString()
+                            var tagArray: [String] = []
+                            tagArray.append(infoTag1!)
+                            tagArray.append(infoTag2!)
+
+                            let activity = Activity(name: name.rawString()!, activityType: category, infoTags: tagArray, lat: Double(lat!) as! Double, long: Double(long!) as! Double, rating: Double(rating!) as! Double)
+                            print("data from activity object")
+                            print(activity!.rating)
+                            activitiesArray.append(activity!)
+                            i += 1
+                            print(activitiesArray)
+                        }
+                    }
+            }
+    }
+    return(activitiesArray) 
 }
+
+
+
+
+
+
+
 //    getAccessKey(onComplete: {accessKey -> Void in
 //        activityGetRequest(accessToken: accessKey!, cities: cities)
 //    })
@@ -102,3 +134,4 @@ func getActivities(city: String, duration: Int, activityCategories: Array<String
 //
 //    }
 //    return("hello")
+

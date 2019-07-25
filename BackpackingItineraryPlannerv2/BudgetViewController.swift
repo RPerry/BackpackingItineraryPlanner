@@ -22,7 +22,6 @@ class BudgetViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func budgetOnClick(_ sender: Any) {
         trip?.budget = tripBudget
-        print(trip?.budget)
         
         self.performSegue(withIdentifier: "budgetVCtoActivityCategoryVC", sender: self)
     }
@@ -44,7 +43,6 @@ class BudgetViewController: UIViewController, UITextFieldDelegate {
         
         //    // The the Closure returns Selected Index and String
         budgetdropdown.didSelect{(selectedText , index ,id) in
-            print(id)
             self.tripBudget = id
 //            self.valueLabel.text = "Selected String: \(selectedText) \n index: \(index)"
         

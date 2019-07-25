@@ -13,7 +13,7 @@ import SwiftyJSON
 
 func getCityLatAndLong(city: String, title: String, countryCode: String, onComplete: @escaping (Location?) -> Void) -> Void {
     
-    let key = "afb663abaaf84977bab22a7e02174cd1"
+    let key = latLongAPIKey
     Alamofire.request("https://api.opencagedata.com/geocode/v1/json?q=\(city)&key=\(key)&countrycode=\(countryCode)")
     .responseJSON { (responseData) -> Void in
             if((responseData.result.value) != nil) {
@@ -23,9 +23,12 @@ func getCityLatAndLong(city: String, title: String, countryCode: String, onCompl
                 //print(swiftyJsonVar["results"][0]["geometry"]["lng"])
                 let lat = swiftyJsonVar["results"][0]["geometry"]["lat"].double
                 let long = swiftyJsonVar["results"][0]["geometry"]["lng"].double
-                let location = Location(title: title, latitude: lat ?? 0 , longitude: long ?? 0, locationSize: 0, duration: 0, activities: nil)
+                let location = Location(title: title, latitude: lat ?? 0 , longitude: long ?? 0, locationSize: 0, duration: 0, activities: nil, hotel: nil)
                 
                 onComplete(location)
+            }
+            else {
+                onComplete(nil)
             }
         }
 }

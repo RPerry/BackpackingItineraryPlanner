@@ -28,11 +28,9 @@ class ActivityCategoriesViewController: UIViewController, UITextFieldDelegate {
 //        print(self.activityCategories)
         categoryLabelString += "\n"
         categoryLabelString += category
-        print(categoryLabelString)
         chosenCategoriesLabel.text = categoryLabelString
 //        chosenCategoriesLabel.frame.size.width = 100
 //        chosenCategoriesLabel.frame.size.height = 100
-        print(chosenCategoriesLabel.text!)
         ActivityCategoryDropDown.optionArray.removeAll { $0 == category }
     }
     
@@ -41,7 +39,7 @@ class ActivityCategoriesViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         ActivityCategoryDropDown.selectedRowColor = .lightGray
-        ActivityCategoryDropDown.optionArray = ["Sights", "Beach/Park", "Historical", "Nightlife", "Restaurant", "Shopping"]
+        ActivityCategoryDropDown.optionArray = ["Parks", "Historical", "Nightlife", "Restaurants", "Shopping", "Museums"]
         
         chosenCategoriesLabel.layer.borderWidth = 1.0
         
@@ -54,6 +52,7 @@ class ActivityCategoriesViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func activityCategoriesonClick(_ sender: Any) {
+        trip?.activityCategories = activityCategories
 //        Variables
         var cost = 0.0
 //        cost not including activities
@@ -63,10 +62,24 @@ class ActivityCategoriesViewController: UIViewController, UITextFieldDelegate {
         trip?.transportation = getAllCitiesTransportation(allCities: trip!.cities!, budget: trip!.budget!)
         
 //        Activities!!!!
-        daysPerCity(cities: trip!.cities!, trip: trip!)
+        print("before days per city")
+        daysPerCity(cities: trip!.cities!, trip: trip!, onComplete: {
+            print("in days per city")
+            for city in self.trip!.cities! {
+                print("before get activities function")
+//                print(city.title)
+//                print(self.trip!.activityCategories!)
+                city.activities = getActivities(city: city.title, duration: city.duration, activityCategories: self.trip!.activityCategories!, budget: self.trip!.budget!)
+//                city.hotel = getHotel(city: city, checkinDate: , checkoutDate: <#T##Date#>, locationSize: city.locationSize, budget: trip?.budget)
+            }
+        })
+        
+        
         
 //        for city in trip!.cities! {
-//           city.activities = getActivities(city: city.title, duration: city.duration, activityCategories: trip!.activityCategories!, budget: trip!.budget!)
+//            print(city.title)
+//            print(city.duration)
+//           getActivities(city: city.title, duration: city.duration, activityCategories: trip!.activityCategories!, budget: trip!.budget!)
 //        }
         
         

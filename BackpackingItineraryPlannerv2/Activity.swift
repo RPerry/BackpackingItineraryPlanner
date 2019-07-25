@@ -14,17 +14,15 @@ class Activity {
     let infoTags: Array<String>
     let lat: Double
     let long: Double
-    let photoUrl: String
-    let priceLevel: Double
+    let rating: Double
     
-    init?(name: String, activityType: String, infoTags: Array<String>, lat: Double, long: Double, photoURL: String, priceLevel: Double) {
+    init?(name: String, activityType: String, infoTags: Array<String>, lat: Double, long: Double, rating: Double) {
         
         self.name = name
         self.activityType = activityType
         self.infoTags = infoTags
         self.lat = lat
         self.long = long
-        self.photoUrl = photoURL
-        self.priceLevel = priceLevel
+        self.rating = rating
     }
 }

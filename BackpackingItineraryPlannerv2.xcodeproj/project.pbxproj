@@ -22,6 +22,8 @@
 		7729248522E28DBE00F4A183 /* getAllCitiesTransportation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7729248422E28DBE00F4A183 /* getAllCitiesTransportation.swift */; };
 		7729248722E293BC00F4A183 /* getActivities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7729248622E293BC00F4A183 /* getActivities.swift */; };
 		7729248922E2940900F4A183 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7729248822E2940900F4A183 /* Activity.swift */; };
+		7729249322E684AF00F4A183 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7729249222E684AF00F4A183 /* Constants.swift */; };
+		7729249522E7E61500F4A183 /* getHotel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7729249422E7E61500F4A183 /* getHotel.swift */; };
 		77EC7E3022D5163A007A5E30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EC7E2F22D5163A007A5E30 /* AppDelegate.swift */; };
 		77EC7E3222D5163A007A5E30 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EC7E3122D5163A007A5E30 /* ViewController.swift */; };
 		77EC7E3522D5163A007A5E30 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77EC7E3322D5163A007A5E30 /* Main.storyboard */; };
@@ -52,6 +54,8 @@
 		7729248422E28DBE00F4A183 /* getAllCitiesTransportation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getAllCitiesTransportation.swift; sourceTree = "<group>"; };
 		7729248622E293BC00F4A183 /* getActivities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getActivities.swift; sourceTree = "<group>"; };
 		7729248822E2940900F4A183 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		7729249222E684AF00F4A183 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		7729249422E7E61500F4A183 /* getHotel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getHotel.swift; sourceTree = "<group>"; };
 		77EC7E2C22D5163A007A5E30 /* BackpackingItineraryPlannerv2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BackpackingItineraryPlannerv2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77EC7E2F22D5163A007A5E30 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77EC7E3122D5163A007A5E30 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +108,7 @@
 		77EC7E2322D5163A007A5E30 = {
 			isa = PBXGroup;
 			children = (
+				7729249222E684AF00F4A183 /* Constants.swift */,
 				77EC7E2E22D5163A007A5E30 /* BackpackingItineraryPlannerv2 */,
 				77EC7E2D22D5163A007A5E30 /* Products */,
 				3FEC5ED059B21EEEDF06AEB4 /* Pods */,
@@ -154,6 +159,7 @@
 				7729247E22E23E4100F4A183 /* daysPerCity.swift */,
 				7729248022E24C4A00F4A183 /* getTransportation.swift */,
 				7729248622E293BC00F4A183 /* getActivities.swift */,
+				7729249422E7E61500F4A183 /* getHotel.swift */,
 				7729246C22DD2E3700F4A183 /* stringtodate.swift */,
 				7729247C22E1472200F4A183 /* cityPopulation.swift */,
 				7729247A22E146E900F4A183 /* cities.json */,
@@ -314,6 +320,8 @@
 				77EC7E5622D7F755007A5E30 /* StartCityEndCityViewController.swift in Sources */,
 				7729247322DF8FCA00F4A183 /* ActivityCategoriesViewController.swift in Sources */,
 				7729248922E2940900F4A183 /* Activity.swift in Sources */,
+				7729249522E7E61500F4A183 /* getHotel.swift in Sources */,
+				7729249322E684AF00F4A183 /* Constants.swift in Sources */,
 				7729248722E293BC00F4A183 /* getActivities.swift in Sources */,
 				77EC7E5422D7D8CB007A5E30 /* Trip.swift in Sources */,
 				7729248122E24C4A00F4A183 /* getTransportation.swift in Sources */,

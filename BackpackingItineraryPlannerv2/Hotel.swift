@@ -9,20 +9,20 @@
 import UIKit
 
 class Hotel {
-    let name: String
-    let checkIn: Double
-    let checkOut: Double
-    let cost: Double
-    let city: String
-    let website: String
+    var name: String?
+    var checkIn: Date?
+    var checkOut: Date?
+    var cost: Double?
+    var lat: String?
+    var long: String?
     
-    init?(name: String, checkIn: Double, checkOut: Double, cost: Double, city: String, website: String) {
+    init?(name: String?, checkIn: Date?, checkOut: Date?, cost: Double?, lat: String?, long: String?) {
        
         self.name = name
         self.checkIn = checkIn
         self.checkOut = checkOut
         self.cost = cost
-        self.city = city
-        self.website = website
+        self.lat = lat
+        self.long = long
     }
 }
