@@ -85,10 +85,6 @@ func daysPerCity(cities: Array<Location>, trip: Trip, onComplete: @escaping () -
                 }
             }
         }
-    for city in cities {
-        print("days in \(city): \(city.duration)")
-        print("location size of \(city): \(city.locationSize)")
-    }
     onComplete()
 }
 

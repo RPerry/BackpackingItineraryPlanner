@@ -25,6 +25,9 @@
 		7729249322E684AF00F4A183 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7729249222E684AF00F4A183 /* Constants.swift */; };
 		7729249522E7E61500F4A183 /* getHotel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7729249422E7E61500F4A183 /* getHotel.swift */; };
 		7729249722EA1FAC00F4A183 /* getDatesForLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7729249622EA1FAC00F4A183 /* getDatesForLocation.swift */; };
+		7729249F22EA7A9300F4A183 /* TripItineraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7729249E22EA7A9300F4A183 /* TripItineraryViewController.swift */; };
+		772924A522EB9A9800F4A183 /* V2ItineraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772924A422EB9A9800F4A183 /* V2ItineraryViewController.swift */; };
+		772924A722EBAC7800F4A183 /* ItineraryCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772924A622EBAC7800F4A183 /* ItineraryCustomCell.swift */; };
 		77EC7E3022D5163A007A5E30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EC7E2F22D5163A007A5E30 /* AppDelegate.swift */; };
 		77EC7E3222D5163A007A5E30 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EC7E3122D5163A007A5E30 /* ViewController.swift */; };
 		77EC7E3522D5163A007A5E30 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77EC7E3322D5163A007A5E30 /* Main.storyboard */; };
@@ -58,6 +61,9 @@
 		7729249222E684AF00F4A183 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7729249422E7E61500F4A183 /* getHotel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getHotel.swift; sourceTree = "<group>"; };
 		7729249622EA1FAC00F4A183 /* getDatesForLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getDatesForLocation.swift; sourceTree = "<group>"; };
+		7729249E22EA7A9300F4A183 /* TripItineraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripItineraryViewController.swift; sourceTree = "<group>"; };
+		772924A422EB9A9800F4A183 /* V2ItineraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = V2ItineraryViewController.swift; sourceTree = "<group>"; };
+		772924A622EBAC7800F4A183 /* ItineraryCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItineraryCustomCell.swift; sourceTree = "<group>"; };
 		77EC7E2C22D5163A007A5E30 /* BackpackingItineraryPlannerv2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BackpackingItineraryPlannerv2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77EC7E2F22D5163A007A5E30 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77EC7E3122D5163A007A5E30 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -137,7 +143,10 @@
 				7729247822E1447200F4A183 /* Hotel.swift */,
 				7729248822E2940900F4A183 /* Activity.swift */,
 				77EC7E3322D5163A007A5E30 /* Main.storyboard */,
+				772924A422EB9A9800F4A183 /* V2ItineraryViewController.swift */,
+				772924A622EBAC7800F4A183 /* ItineraryCustomCell.swift */,
 				7729247222DF8FCA00F4A183 /* ActivityCategoriesViewController.swift */,
+				7729249E22EA7A9300F4A183 /* TripItineraryViewController.swift */,
 				7729246E22DD355100F4A183 /* BudgetViewController.swift */,
 				77EC7E5522D7F755007A5E30 /* StartCityEndCityViewController.swift */,
 				7729246A22DCFF4F00F4A183 /* PracticeRouteViewController.swift */,
@@ -320,9 +329,12 @@
 				7729246B22DCFF4F00F4A183 /* PracticeRouteViewController.swift in Sources */,
 				77EC7E3022D5163A007A5E30 /* AppDelegate.swift in Sources */,
 				7729246F22DD355100F4A183 /* BudgetViewController.swift in Sources */,
+				772924A722EBAC7800F4A183 /* ItineraryCustomCell.swift in Sources */,
 				77EC7E5622D7F755007A5E30 /* StartCityEndCityViewController.swift in Sources */,
 				7729249722EA1FAC00F4A183 /* getDatesForLocation.swift in Sources */,
 				7729247322DF8FCA00F4A183 /* ActivityCategoriesViewController.swift in Sources */,
+				772924A522EB9A9800F4A183 /* V2ItineraryViewController.swift in Sources */,
+				7729249F22EA7A9300F4A183 /* TripItineraryViewController.swift in Sources */,
 				7729248922E2940900F4A183 /* Activity.swift in Sources */,
 				7729249522E7E61500F4A183 /* getHotel.swift in Sources */,
 				7729249322E684AF00F4A183 /* Constants.swift in Sources */,

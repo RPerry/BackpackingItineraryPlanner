@@ -21,8 +21,6 @@ func getActivities(city: String, duration: Int, activityCategories: Array<String
         $0 == " " ? "+" : $0
     })
     
-    print(location)
-    
     for activity in activityCategories {
         numberOfActivitiesPerCategory[activity] = Double(duration * 4) / Double(activityCategories.count)
     }
@@ -45,12 +43,11 @@ func getActivities(city: String, duration: Int, activityCategories: Array<String
     
     print(numberOfActivitiesPerCategory)
         for (category, numberofActivities) in numberOfActivitiesPerCategory {
-            Alamofire.request("https://maps.googleapis.com/maps/api/place/textsearch/json?query=museum+in+\(city)&key=\(apiKey)")
+            Alamofire.request("https://maps.googleapis.com/maps/api/place/textsearch/json?query=\(category)+in+\(city)&key=\(apiKey)")
                 .responseJSON { (responseData) -> Void in
                     if((responseData.result.value) != nil) {
                         let swiftyJsonVar = JSON(responseData.result.value!)
 //                        print(swiftyJsonVar)
-                        print("city \(city)")
                         var i = 0
                         while i < Int(numberofActivities) {
                             let name = swiftyJsonVar["results"][i]["name"]
@@ -67,7 +64,6 @@ func getActivities(city: String, duration: Int, activityCategories: Array<String
 //                            print("data from activity object")
                             activitiesArray.append(activity!)
                             i += 1
-//                            print(activitiesArray)
                         }
                     }
             }

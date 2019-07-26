@@ -372,11 +372,109 @@
                     <connections>
                         <outlet property="ActivityCategoryDropDown" destination="BQ6-iJ-uGu" id="vdN-Ka-TeK"/>
                         <outlet property="chosenCategoriesLabel" destination="v2h-z5-D3f" id="uKn-hA-jLe"/>
+                        <segue destination="Ihu-rz-6Ze" kind="show" identifier="ActivityCategoriesVCToTripItineraryVC" id="k2R-SA-mbd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kK7-VI-fpt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6053.6231884057979" y="67.633928571428569"/>
+        </scene>
+        <!--Itinerary View Controller-->
+        <scene sceneID="4wk-k1-KWw">
+            <objects>
+                <viewController id="Ihu-rz-6Ze" customClass="V2ItineraryViewController" customModule="BackpackingItineraryPlannerv2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Zw7-w7-KZ0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="SZA-A1-wZ2">
+                                <rect key="frame" x="0.0" y="162" width="414" height="213"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vRq-7u-b4m">
+                                <rect key="frame" x="0.0" y="383" width="414" height="502"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="vRq-7u-b4m" secondAttribute="height" multiplier="69:89" id="XkJ-2L-HoB"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="V2CityCell" rowHeight="90" id="Ejy-WO-6gM" customClass="ItineraryCustomCell" customModule="BackpackingItineraryPlannerv2" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="90"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ejy-WO-6gM" id="dmE-kI-gbq">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="89.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MIl-Tq-RyA">
+                                                    <rect key="frame" x="6" y="0.0" width="96" height="85"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="85" id="WiI-Le-7P1"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e3v-od-nF3">
+                                                    <rect key="frame" x="110" y="21" width="45" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kOY-Uc-T55">
+                                                    <rect key="frame" x="110" y="31" width="30.5" height="47.5"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="992-SB-A8c">
+                                                    <rect key="frame" x="348" y="29" width="47" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Details"/>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="MIl-Tq-RyA" secondAttribute="bottom" constant="-6" id="9C7-Lb-QnR"/>
+                                                <constraint firstItem="MIl-Tq-RyA" firstAttribute="top" secondItem="dmE-kI-gbq" secondAttribute="top" id="EeX-oU-RQg"/>
+                                                <constraint firstItem="MIl-Tq-RyA" firstAttribute="leading" secondItem="dmE-kI-gbq" secondAttribute="leadingMargin" constant="-14" id="h7H-CG-ENQ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="cityImageView" destination="MIl-Tq-RyA" id="Kk0-1L-xuk"/>
+                                            <outlet property="dateLabel" destination="kOY-Uc-T55" id="Zch-8s-IWh"/>
+                                            <outlet property="nameLabel" destination="e3v-od-nF3" id="LPl-5y-sY9"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ka8-eK-MY6">
+                                <rect key="frame" x="0.0" y="88" width="414" height="66"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="vRq-7u-b4m" firstAttribute="trailing" secondItem="VxZ-p7-Kbv" secondAttribute="trailing" id="PUo-b2-naT"/>
+                            <constraint firstItem="vRq-7u-b4m" firstAttribute="leading" secondItem="VxZ-p7-Kbv" secondAttribute="leading" id="UxI-1y-gMV"/>
+                            <constraint firstAttribute="bottom" secondItem="vRq-7u-b4m" secondAttribute="bottom" constant="7" id="ZmH-Di-I3T"/>
+                            <constraint firstItem="vRq-7u-b4m" firstAttribute="leading" secondItem="VxZ-p7-Kbv" secondAttribute="leading" id="a4F-Bo-kZx"/>
+                            <constraint firstItem="vRq-7u-b4m" firstAttribute="leading" secondItem="VxZ-p7-Kbv" secondAttribute="leading" id="agW-lH-Hw0"/>
+                            <constraint firstItem="vRq-7u-b4m" firstAttribute="trailing" secondItem="VxZ-p7-Kbv" secondAttribute="trailing" id="oFN-ND-Wg1"/>
+                            <constraint firstItem="vRq-7u-b4m" firstAttribute="trailing" secondItem="VxZ-p7-Kbv" secondAttribute="trailing" id="zcv-Fx-pzj"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="VxZ-p7-Kbv"/>
+                    </view>
+                    <connections>
+                        <outlet property="ItineraryLabel" destination="ka8-eK-MY6" id="UD1-qf-bnN"/>
+                        <outlet property="ItineraryMapView" destination="SZA-A1-wZ2" id="bRq-W7-Bo3"/>
+                        <outlet property="ItineraryTableView" destination="vRq-7u-b4m" id="OmO-0g-dlr"/>
+                        <outlet property="tableView" destination="vRq-7u-b4m" id="wF7-2j-Gn5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dtm-ao-nOM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6818.8405797101459" y="67.633928571428569"/>
         </scene>
         <!--Trip Name View Controller-->
         <scene sceneID="T1Z-W3-ksM">

@@ -23,7 +23,6 @@ func getHotel(city: String, checkinDate: Date, checkoutDate: Date, locationSize:
         .responseJSON { (responseData) -> Void in
             if((responseData.result.value) != nil) {
                 let swiftyJsonVar = JSON(responseData.result.value!)
-//                print(swiftyJsonVar["results"][0])
                 
                 let name = swiftyJsonVar["results"][0]["name"].rawString()
                 let lat = swiftyJsonVar["results"][0]["geometry"]["location"]["lat"].rawString()

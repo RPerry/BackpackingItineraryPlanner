@@ -22,10 +22,21 @@ class ActivityCategoriesViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var ActivityCategoryDropDown: DropDown!
     @IBOutlet weak var chosenCategoriesLabel: UILabel!
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier ==
+            "ActivityCategoriesVCToTripItineraryVC"){
+            let displayVC = segue.destination as! V2ItineraryViewController
+            displayVC.tripName = trip?.tripName
+            displayVC.trip = trip
+//            displayVC.locationNames = for city in trip.cities {
+//                city.name
+//            }
+        }
+    }
+    
     
     @IBAction func addCategoryButton(_ sender: Any) {
         self.activityCategories.append(category)
-//        print(self.activityCategories)
         categoryLabelString += "\n"
         categoryLabelString += category
         chosenCategoriesLabel.text = categoryLabelString
@@ -78,6 +89,9 @@ class ActivityCategoriesViewController: UIViewController, UITextFieldDelegate {
                     city.hotel = getHotel(city: city.title, checkinDate: city.startDate!, checkoutDate: checkoutDate!, locationSize: city.locationSize, budget: self.trip!.budget!)
                 }
             }
+            self.performSegue(withIdentifier: "ActivityCategoriesVCToTripItineraryVC", sender: self)
+//            let vc: TripItineraryViewController = TripItineraryViewController()
+//            self.present(vc, animated: true, completion: nil)
         })
         
         

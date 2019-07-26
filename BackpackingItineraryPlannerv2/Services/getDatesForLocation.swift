@@ -10,12 +10,6 @@ import Foundation
 
 func getDatesForLocations(cities: Array<Location>, tripStartDate: Date, tripEndDate: Date) -> Void {
     
-    for city in cities {
-        print("dates for locations cities")
-        print(city.title)
-    }
-    
-    
     var i = 0
     
     while i < cities.count {
@@ -31,7 +25,6 @@ func getDatesForLocations(cities: Array<Location>, tripStartDate: Date, tripEndD
             }
             i += 1
         } else {
-            print(cities[i].title)
             let calendar = Calendar.current
             let startDate = calendar.date(byAdding: .day, value: 1, to: cities[i-1].endDate!)
             cities[i].startDate = startDate

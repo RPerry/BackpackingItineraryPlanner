@@ -51,10 +51,6 @@ class startDateEndDateViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        for city in trip!.cities! {
-            print(city.title)
-        }
-        
         startDatePicker = UIDatePicker()
         startDatePicker?.datePickerMode = .date
         startDatePicker?.addTarget(self, action: #selector(startDateEndDateViewController.startDateChanged(startDatePicker:)), for: .valueChanged)

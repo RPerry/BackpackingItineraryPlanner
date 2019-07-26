@@ -43,11 +43,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         let endCityLabels = checkForSpace(userCity: trip!.endCity!)
         getCityLatAndLong(city: endCityLabels.api, title: endCityLabels.map, countryCode: "US", onComplete: { location -> Void in
-           print("end city location add")
             if let loc = location {
                 self.locations.append(loc)
                 self.addAnnotation(location: loc)
-                print("location \(loc.title)")
                 self.trip!.cities = self.locations
                 self.performSegue(withIdentifier: "tripCitiesVCtotravelDatesVC", sender: self)
             }
@@ -92,7 +90,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let startTripLabels = checkForSpace(userCity: trip!.startCity!)
         getCityLatAndLong(city: startTripLabels.api, title: startTripLabels.map, countryCode: "US", onComplete: { location -> Void in
             if let loc = location {
-                print("start city location add?")
                 self.locations.append(loc)
                 self.addAnnotation(location: loc)
             }
