@@ -15,6 +15,9 @@ class StartCityEndCityViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var endCityTextField: UITextField!
     
+    
+    @IBOutlet weak var startCityEndCitySubmitButton: UIButton!
+    
     @IBAction func startEndCityOnClick(_ sender: Any) {
         viewTapped()
     }
@@ -63,6 +66,16 @@ class StartCityEndCityViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
          super.viewDidLoad()
+        
+        view.addBackground(imageName: "lighterbluegradient")
+        
+        startCityTextField.addLine(position: .LINE_POSITION_BOTTOM, color: .black, width: 0.5)
+        endCityTextField.addLine(position: .LINE_POSITION_BOTTOM, color: .black, width: 0.5)
+        
+        startCityEndCitySubmitButton.backgroundColor = UIColor(red:0.33, green:0.42, blue:0.65, alpha:1.0)
+        startCityEndCitySubmitButton.layer.cornerRadius = 5
+        startCityEndCitySubmitButton.layer.borderWidth = 1
+        startCityEndCitySubmitButton.layer.borderColor = UIColor(red:0.33, green:0.42, blue:0.65, alpha:1.0).cgColor
         
 //        ref.child("id2").observeSingleEvent(of: .value)
 //        {(snapshot) in

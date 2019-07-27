@@ -27,6 +27,7 @@ class V2ItineraryViewController:  UIViewController, MKMapViewDelegate, UITableVi
         
         tableView.delegate = self
         tableView.dataSource = self
+        ItineraryLabel.text = "\(trip!.tripName!) Itinerary"
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -43,7 +44,7 @@ class V2ItineraryViewController:  UIViewController, MKMapViewDelegate, UITableVi
     
     // method to run when table view cell is tapped
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("You tapped cell number \(indexPath.row).")
+//        print("You tapped cell number \(indexPath.row).")
     }
     
     

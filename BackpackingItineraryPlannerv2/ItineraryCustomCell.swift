@@ -14,6 +14,22 @@ class ItineraryCustomCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var cityImageView: UIImageView!
     
+//    @IBAction func detailsButtononClick(_ sender: Any) {
+//        performSegue(withIdentifier: "ItineraryVCtoCityItineraryVC", sender: self)
+//    }
+    
+//    func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if(segue.identifier ==
+//            "ItineraryVCtoCityItineraryVC"){
+//            let displayVC = segue.destination as! CityItineraryDetails
+//            displayVC.tripName = city?.title
+//            displayVC.city = city
+//            //            displayVC.locationNames = for city in trip.cities {
+//            //                city.name
+//            //            }
+//        }
+//    }
+    
     var city: Location? {
         didSet {
             guard let city = city else { return }

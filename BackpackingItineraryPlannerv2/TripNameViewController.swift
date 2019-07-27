@@ -13,6 +13,7 @@ class TripNameViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var tripNameTextField: UITextField!
     
+    @IBOutlet weak var tripNameSubmitButton: UIButton!
     
     var tripName = ""
     
@@ -45,6 +46,15 @@ class TripNameViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.addBackground(imageName: "lighterbluegradient")
+        
+        tripNameTextField.addLine(position: .LINE_POSITION_BOTTOM, color: .black, width: 0.5)
+        
+        tripNameSubmitButton.backgroundColor = UIColor(red:0.33, green:0.42, blue:0.65, alpha:1.0)
+        tripNameSubmitButton.layer.cornerRadius = 5
+        tripNameSubmitButton.layer.borderWidth = 1
+        tripNameSubmitButton.layer.borderColor = UIColor(red:0.33, green:0.42, blue:0.65, alpha:1.0).cgColor
+        
         tripNameTextField.delegate = self
         
         let tapRecogniser = UITapGestureRecognizer()
