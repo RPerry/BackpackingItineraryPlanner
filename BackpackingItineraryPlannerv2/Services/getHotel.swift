@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-func getHotel(city: String, checkinDate: Date, checkoutDate: Date, locationSize: Int, budget: Int) -> Hotel {
+func getHotel(city: String, checkinDate: Date, checkoutDate: Date, locationSize: Int, budget: Int, onComplete: @escaping (Hotel) -> Void) -> Void{
     let apiKey = googlePlacesAPIKey
     var location = ""
     var hotel = Hotel(name: nil, checkIn: checkinDate, checkOut: checkoutDate, cost: nil, lat: nil, long: nil)
@@ -88,6 +88,6 @@ func getHotel(city: String, checkinDate: Date, checkoutDate: Date, locationSize:
                 hotel!.long = long
             }
     }
-    return(hotel!)
+    onComplete(hotel!)
 }
 

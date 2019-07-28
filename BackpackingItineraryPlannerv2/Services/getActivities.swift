@@ -10,12 +10,13 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-func getActivities(city: String, duration: Int, activityCategories: Array<String>, budget: Int, cityLocation: Location) -> Void {
+func getActivities(city: String, duration: Int, activityCategories: Array<String>, budget: Int, cityLocation: Location, onComplete: @escaping () -> Void) -> Void {
 //    var activitiesArray: [Activity] = []
     var numberOfActivitiesPerCategory: [String: Double] = [:]
     let apiKey = googlePlacesAPIKey
     var extraActivities = 0.0
     var location = ""
+    var numberofTotalActivities = 0
     
     location = String(city.map {
         $0 == " " ? "+" : $0
@@ -43,7 +44,11 @@ func getActivities(city: String, duration: Int, activityCategories: Array<String
     
     print(numberOfActivitiesPerCategory)
     
-    activitiesAPI(numberOfActivitiesPerCategory: numberOfActivitiesPerCategory, location: location, apiKey: apiKey, cityLocation: cityLocation, onComplete: {return})
+    for (category, numberofActivities) in numberOfActivitiesPerCategory {
+        numberofTotalActivities += Int(numberofActivities)
+    }
+    
+    activitiesAPI(numberOfActivitiesPerCategory: numberOfActivitiesPerCategory, location: location, apiKey: apiKey, cityLocation: cityLocation, numberofTotalActivities: numberofTotalActivities, onComplete: {return})
 //        for (category, numberofActivities) in numberOfActivitiesPerCategory {
 //            Alamofire.request("https://maps.googleapis.com/maps/api/place/textsearch/json?query=\(category)+in+\(location)&key=\(apiKey)")
 //                .responseJSON { (responseData) -> Void in
@@ -76,8 +81,10 @@ func getActivities(city: String, duration: Int, activityCategories: Array<String
 //    return(activitiesArray)
 }
 
-func activitiesAPI(numberOfActivitiesPerCategory: [String: Double], location: String, apiKey: String, cityLocation: Location, onComplete: @escaping () -> Void) -> Void {
+func activitiesAPI(numberOfActivitiesPerCategory: [String: Double], location: String, apiKey: String, cityLocation: Location, numberofTotalActivities: Int, onComplete: @escaping () -> Void) -> Void {
+    var responseCount = 0
     for (category, numberofActivities) in numberOfActivitiesPerCategory {
+        var activityCount = 0
         Alamofire.request("https://maps.googleapis.com/maps/api/place/textsearch/json?query=\(category)+in+\(location)&key=\(apiKey)")
             .responseJSON { (responseData) -> Void in
                 if((responseData.result.value) != nil) {
@@ -102,9 +109,20 @@ func activitiesAPI(numberOfActivitiesPerCategory: [String: Double], location: St
                         cityLocation.activities!.append(activity!)
                         print("activities array count: \(cityLocation.activities!.count)")
                         i += 1
+                        activityCount += 1
+                        print(activityCount)
+                        if activityCount == Int(numberofActivities) {
+                            responseCount += 1
+                        }
+                        print("Response count: \(responseCount)")
+                        print("Number of activity categories: \(numberOfActivitiesPerCategory.count)")
+                        if responseCount == numberOfActivitiesPerCategory.count{
+                            print("finally at activities on complete")
+                            onComplete()
+                        }
                     }
+                    
                 }
         }
     }
-    onComplete()
 }

@@ -119,21 +119,40 @@ class ActivityCategoriesViewController: UIViewController, UITextFieldDelegate {
         })
         
         func loop(onComplete: @escaping () -> Void) -> Void {
+            var finishedFuncs = 0
             for city in self.trip!.cities! {
-                
+                var allCalls = 0
 //                                city.activities =
-                getActivities(city: city.title, duration: city.duration, activityCategories: self.trip!.activityCategories!, budget: self.trip!.budget!, cityLocation: city)
+                getActivities(city: city.title, duration: city.duration, activityCategories: self.trip!.activityCategories!, budget: self.trip!.budget!, cityLocation: city, onComplete: {
+                    allCalls += 1
+                    print("in get activities oncomplete")
+                })
                 
                 let calendar = Calendar.current
                 let checkoutDate = calendar.date(byAdding: .day, value: 1, to: city.endDate!)
                 
                 if city.endDate == self.trip?.endDate {
-                    city.hotel = getHotel(city: city.title, checkinDate: city.startDate!, checkoutDate: city.endDate!, locationSize: city.locationSize, budget: self.trip!.budget!)
+                    getHotel(city: city.title, checkinDate: city.startDate!, checkoutDate: city.endDate!, locationSize: city.locationSize, budget: self.trip!.budget!, onComplete: { hotel -> Void in
+                            city.hotel = hotel
+                            allCalls += 1
+                            print("in get hotel oncomplete")
+                        })
                 } else {
-                    city.hotel = getHotel(city: city.title, checkinDate: city.startDate!, checkoutDate: checkoutDate!, locationSize: city.locationSize, budget: self.trip!.budget!)
+                    getHotel(city: city.title, checkinDate: city.startDate!, checkoutDate: checkoutDate!, locationSize: city.locationSize, budget: self.trip!.budget!, onComplete: { hotel -> Void in
+                        city.hotel = hotel
+                        allCalls += 1
+                        print("in get hotel oncomplete")
+                    })
+                }
+                print("All Calls: \(allCalls)")
+                if allCalls == 2 {
+                    finishedFuncs += 1
                 }
             }
-            onComplete()
+            print("Finished funcs: \(finishedFuncs)")
+            if finishedFuncs == self.trip!.cities!.count - 1 {
+                onComplete()
+            }
         }
         
         func segue() {
