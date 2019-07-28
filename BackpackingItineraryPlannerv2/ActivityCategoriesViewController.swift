@@ -121,7 +121,7 @@ class ActivityCategoriesViewController: UIViewController, UITextFieldDelegate {
         func loop(onComplete: @escaping () -> Void) -> Void {
             for city in self.trip!.cities! {
                 
-                //                city.activities =
+//                                city.activities =
                 getActivities(city: city.title, duration: city.duration, activityCategories: self.trip!.activityCategories!, budget: self.trip!.budget!, cityLocation: city)
                 
                 let calendar = Calendar.current

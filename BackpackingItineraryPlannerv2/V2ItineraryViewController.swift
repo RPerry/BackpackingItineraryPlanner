@@ -29,7 +29,7 @@ class V2ItineraryViewController:  UIViewController, MKMapViewDelegate, UITableVi
         
         for city in trip!.cities! {
             addAnnotation(location: city)
-//            print("\(city.title) activity count: \(city.activities!.count)")
+            print("\(city.title) activity count: \(city.activities!.count)")
         }
         
         tableView.delegate = self
