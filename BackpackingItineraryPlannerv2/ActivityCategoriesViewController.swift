@@ -90,16 +90,18 @@ class ActivityCategoriesViewController: UIViewController, UITextFieldDelegate {
         
 //        Transportation!!!
         
-        trip?.transportation = getAllCitiesTransportation(allCities: trip!.cities!, budget: trip!.budget!)
+        getAllCitiesTransportation(trip: trip!, allCities: trip!.cities!, budget: trip!.budget!, onComplete: {
         
 //        Activities!!!!
-        daysPerCity(cities: trip!.cities!, trip: trip!, onComplete: {
+            daysPerCity(cities: self.trip!.cities!, trip: self.trip!, onComplete: {
             getDatesForLocations(cities: self.trip!.cities!, tripStartDate: self.trip!.startDate!, tripEndDate: self.trip!.endDate!)
             
             loop(onComplete: {
                 print("in on complete")
+                print("NUmber of transportation \(self.trip?.transportation?.count)")
                 self.performSegue(withIdentifier: "ActivityCategoriesVCToTripItineraryVC", sender: self)
                 })
+            })
 //            for city in self.trip!.cities! {
 //
 ////                city.activities =
@@ -125,33 +127,66 @@ class ActivityCategoriesViewController: UIViewController, UITextFieldDelegate {
 //                                city.activities =
                 getActivities(city: city.title, duration: city.duration, activityCategories: self.trip!.activityCategories!, budget: self.trip!.budget!, cityLocation: city, onComplete: {
                     allCalls += 1
-                    print("in get activities oncomplete")
-                })
-                
-                let calendar = Calendar.current
-                let checkoutDate = calendar.date(byAdding: .day, value: 1, to: city.endDate!)
-                
-                if city.endDate == self.trip?.endDate {
-                    getHotel(city: city.title, checkinDate: city.startDate!, checkoutDate: city.endDate!, locationSize: city.locationSize, budget: self.trip!.budget!, onComplete: { hotel -> Void in
+//                    print("in get activities oncomplete")
+                    
+                    let calendar = Calendar.current
+                    let checkoutDate = calendar.date(byAdding: .day, value: 1, to: city.endDate!)
+                    
+                    if city.endDate == self.trip?.endDate {
+                        getHotel(city: city.title, checkinDate: city.startDate!, checkoutDate: city.endDate!, locationSize: city.locationSize, budget: self.trip!.budget!, onComplete: { hotel -> Void in
                             city.hotel = hotel
                             allCalls += 1
-                            print("in get hotel oncomplete")
+//                            print("in get hotel oncomplete")
+//                            print("All Calls: \(allCalls)")
+                            if allCalls == 2 {
+                                finishedFuncs += 1
+                            }
+                            if finishedFuncs == self.trip!.cities!.count - 1 {
+//                                print("Finished funcs: \(finishedFuncs)")
+                                onComplete()
+                            }
                         })
-                } else {
-                    getHotel(city: city.title, checkinDate: city.startDate!, checkoutDate: checkoutDate!, locationSize: city.locationSize, budget: self.trip!.budget!, onComplete: { hotel -> Void in
-                        city.hotel = hotel
-                        allCalls += 1
-                        print("in get hotel oncomplete")
-                    })
-                }
-                print("All Calls: \(allCalls)")
-                if allCalls == 2 {
-                    finishedFuncs += 1
-                }
-            }
-            print("Finished funcs: \(finishedFuncs)")
-            if finishedFuncs == self.trip!.cities!.count - 1 {
-                onComplete()
+                    } else {
+                        getHotel(city: city.title, checkinDate: city.startDate!, checkoutDate: checkoutDate!, locationSize: city.locationSize, budget: self.trip!.budget!, onComplete: { hotel -> Void in
+                            city.hotel = hotel
+                            allCalls += 1
+//                            print("in get hotel oncomplete")
+//                            print("All Calls: \(allCalls)")
+                            if allCalls == 2 {
+                                finishedFuncs += 1
+                            }
+//                            print("Finished funcs: \(finishedFuncs)")
+                            if finishedFuncs == self.trip!.cities!.count - 1 {
+                                onComplete()
+                            }
+                        })
+                    }
+                })
+                
+//                let calendar = Calendar.current
+//                let checkoutDate = calendar.date(byAdding: .day, value: 1, to: city.endDate!)
+//
+//                if city.endDate == self.trip?.endDate {
+//                    getHotel(city: city.title, checkinDate: city.startDate!, checkoutDate: city.endDate!, locationSize: city.locationSize, budget: self.trip!.budget!, onComplete: { hotel -> Void in
+//                            city.hotel = hotel
+//                            allCalls += 1
+//                            print("in get hotel oncomplete")
+//                        })
+//                } else {
+//                    getHotel(city: city.title, checkinDate: city.startDate!, checkoutDate: checkoutDate!, locationSize: city.locationSize, budget: self.trip!.budget!, onComplete: { hotel -> Void in
+//                        city.hotel = hotel
+//                        allCalls += 1
+//                        print("in get hotel oncomplete")
+//                    })
+//                }
+//                print("All Calls: \(allCalls)")
+//                if allCalls == 2 {
+//                    finishedFuncs += 1
+//                }
+//                if finishedFuncs == self.trip!.cities!.count - 1 {
+//                    print("Finished funcs: \(finishedFuncs)")
+//                    onComplete()
+//                }
             }
         }
         

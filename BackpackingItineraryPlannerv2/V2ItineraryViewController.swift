@@ -67,6 +67,7 @@ class V2ItineraryViewController:  UIViewController, MKMapViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        print("You tapped cell number \(indexPath.row).")
         rowClicked = indexPath.row
+        print("row clicked: \(rowClicked)")
         performSegue(withIdentifier: "ItineraryVCtoCityItineraryVC", sender: self)
     }
     

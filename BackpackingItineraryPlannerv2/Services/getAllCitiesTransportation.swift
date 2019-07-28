@@ -8,7 +8,7 @@
 
 import Foundation
 
-func getAllCitiesTransportation(allCities: Array<Location>, budget: Int) -> Array<Transportation> {
+func getAllCitiesTransportation(trip: Trip, allCities: Array<Location>, budget: Int, onComplete: @escaping () -> Void) -> Void {
     var cities = [String]()
     for location in allCities {
         cities.append(location.title)
@@ -17,17 +17,24 @@ func getAllCitiesTransportation(allCities: Array<Location>, budget: Int) -> Arra
     var c1 = 0
     var c2 = 1
     var i = 0
+    var j = 0
     while i <= (cities.count - 2) {
         
         getTransporation(startCity: cities[c1], endCity: cities[c2], budget: budget, onComplete: {transportation -> Void in
             if let transport = transportation {
                 print(transport.company)
                 tripTransportation.append(transport)
+//                print("Trip transportation count: \(tripTransportation.count)")
+            j += 1
+            if j == cities.count - 1 {
+                print("Trip transportation count: \(tripTransportation.count)")
+                trip.transportation = tripTransportation
+                onComplete()
+            }
             }
         })
         c1 += 1
         c2 += 1
         i += 1
     }
-    return tripTransportation
 }

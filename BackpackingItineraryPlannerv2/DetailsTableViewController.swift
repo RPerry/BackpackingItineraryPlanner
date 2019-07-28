@@ -1,60 +1,51 @@
 //
-//  CityItineraryDetails.swift
-//  BackpackingItineraryPlannerv2
+//  DetailsTableViewController.swift
+//  
 //
-//  Created by Riyo Perry on 7/26/19.
-//  Copyright © 2019 Riyo Perry. All rights reserved.
+//  Created by Riyo Perry on 7/28/19.
 //
 
 import UIKit
 import MapKit
 
-class CityItineraryDetails:  UIViewController, MKMapViewDelegate, UITableViewDelegate, UITableViewDataSource {
-    
+class DetailsTableViewController: UIViewController, MKMapViewDelegate, UITableViewDelegate, UITableViewDataSource {
+
     var tripName: String?
     var trip: Trip?
     var rowClicked: Int?
-//    var allThingsinLocationDictArray: [[Date:Any]] = []
-//    var datesInLocation: [Date]?
+    //    var allThingsinLocationDictArray: [[Date:Any]] = []
+    //    var datesInLocation: [Date]?
     var allThingsinLocationArray: [Activity] = []
-
+    
     let cellReuseIdentifier = "ActivityCustomCell"
     @IBOutlet weak var cityNameLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var hotelLabel: UILabel!
-    @IBOutlet weak var transportationLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         tableView.delegate = self
         tableView.dataSource = self
         cityNameLabel.text = "Daily Itinerary for \(trip!.cities![rowClicked!].title)"
-        hotelLabel.text = "Hotel: \n \(trip!.cities![rowClicked!].hotel?.name!) \n Cost: \(trip!.cities![rowClicked!].hotel?.cost!)"
-        if rowClicked! != trip!.cities!.count - 1 {
-            print(trip!.transportation!.count)
-            let transportation = trip!.transportation![rowClicked!]
-            transportationLabel.text = "Transportation from \(transportation.startCity) to \(transportation.endCity): \n \(transportation.type) - \(transportation.company) \n Cost: $\(Int(transportation.cost)) \n Duration: \(transportation.duration)"
-        } else {
-            transportationLabel.text = "Transportation: \n Your Trip Is Over!"
-        }
+        
     }
     
     func allActivitiesinLocation(location: Location) {
         print("Location: \(location.title)")
-//        var datesInLocation: [Date]
-//        var date = location.startDate
-//        if location.startDate != location.endDate {
-//            while date! <= location.endDate! {
-//                datesInLocation!.append(date!)
-//                let calendar = Calendar.current
-//                date = calendar.date(byAdding: .day, value: 1, to: date!)
-////                date = Calendar.date(byAdding: .day, value: 1, to: date)!
-//            }
-//        } else {
-//            datesInLocation!.append(date!)
-//        }
+        //        var datesInLocation: [Date]
+        //        var date = location.startDate
+        //        if location.startDate != location.endDate {
+        //            while date! <= location.endDate! {
+        //                datesInLocation!.append(date!)
+        //                let calendar = Calendar.current
+        //                date = calendar.date(byAdding: .day, value: 1, to: date!)
+        ////                date = Calendar.date(byAdding: .day, value: 1, to: date)!
+        //            }
+        //        } else {
+        //            datesInLocation!.append(date!)
+        //        }
         
-//        var randomIntsforActvities: Array<Int>
+        //        var randomIntsforActvities: Array<Int>
         var randomIntsforActvities: Array<Int> = []
         var i = 1
         var numberofActivtiesCountArray: Array<Int> = []
@@ -71,7 +62,7 @@ class CityItineraryDetails:  UIViewController, MKMapViewDelegate, UITableViewDel
             i += 1
         }
         
-//        for date in datesInLocation! {
+        //        for date in datesInLocation! {
         var n = 1
         while n <= location.duration {
             for randomInt in randomIntsforActvities{
@@ -79,7 +70,7 @@ class CityItineraryDetails:  UIViewController, MKMapViewDelegate, UITableViewDel
             }
             n += 1
         }
-//        }
+        //        }
     }
     
     
@@ -88,10 +79,10 @@ class CityItineraryDetails:  UIViewController, MKMapViewDelegate, UITableViewDel
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-         allActivitiesinLocation(location: trip!.cities![rowClicked!])
+        allActivitiesinLocation(location: trip!.cities![rowClicked!])
         let cell:CityDayCustomCell = self.tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as! CityDayCustomCell
         let activity = allThingsinLocationArray[indexPath.row]
-                cell.activity = activity
-                return cell
+        cell.activity = activity
+        return cell
     }
 }

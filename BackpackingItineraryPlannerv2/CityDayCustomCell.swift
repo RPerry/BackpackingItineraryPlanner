@@ -9,9 +9,10 @@
 import UIKit
 
 class CityDayCustomCell: UITableViewCell {
-
+//
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var activityLabel: UILabel!
+//
     
     var activity: Activity? {
         didSet {

@@ -30,7 +30,7 @@ func getTransporation(startCity: String, endCity: String, budget: Int, onComplet
         .responseJSON { (responseData) -> Void in
             if((responseData.result.value) != nil) {
                 let swiftyJsonVar = JSON(responseData.result.value!)
-                
+                print("Trip Duration: \(swiftyJsonVar["routes"][0]["totalDuration"].int)")
                 if budget == 1 && (swiftyJsonVar["routes"][0]["name"] == "Bus" || swiftyJsonVar["routes"][1]["name"] == "Bus") {
                     type = "Bus"
                 } else if budget == 1 && (swiftyJsonVar["routes"][0]["name"] != "Bus" && swiftyJsonVar["routes"][1]["name"] != "Bus") {

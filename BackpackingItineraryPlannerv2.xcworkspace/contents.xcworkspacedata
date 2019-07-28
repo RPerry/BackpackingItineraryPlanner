@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/Riyo/Desktop/BackpackingItineraryPlannerv2/BackpackingItineraryPlannerv2/DetailsTableViewController.swift">
+   </FileRef>
+   <FileRef
       location = "group:BackpackingItineraryPlannerv2.xcodeproj">
    </FileRef>
    <FileRef

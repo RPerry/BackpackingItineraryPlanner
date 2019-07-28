@@ -471,37 +471,58 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hotel" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jor-Vg-CpB">
+                                <rect key="frame" x="20" y="263" width="374" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Transportation" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mQ4-dT-4qN">
+                                <rect key="frame" x="20" y="694" width="366" height="122"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bPQ-e0-9BQ">
-                                <rect key="frame" x="20" y="169" width="374" height="693"/>
+                                <rect key="frame" x="20" y="351" width="374" height="313"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="90" id="3Zl-CS-Xyv" customClass="CityDayCustomCell" customModule="BackpackingItineraryPlannerv2" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ActivityCustomCell" rowHeight="90" id="3Zl-CS-Xyv" customClass="CityDayCustomCell" customModule="BackpackingItineraryPlannerv2" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="374" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="ActivityCustomCell" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3Zl-CS-Xyv" id="dns-Pp-Ein" customClass="CityDayCustomCell" customModule="BackpackingItineraryPlannerv2" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="89.666666666666671"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Wa-pb-9KM">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Wa-pb-9KM">
                                                     <rect key="frame" x="307" y="36" width="60" height="17"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Activity Info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zd6-4C-6ns">
-                                                    <rect key="frame" x="20" y="0.0" width="258" height="90"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Activity Info" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zd6-4C-6ns">
+                                                    <rect key="frame" x="12" y="14" width="261" height="65"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="4Wa-pb-9KM" secondAttribute="trailing" constant="7" id="8Ge-2q-gep"/>
+                                                <constraint firstItem="Zd6-4C-6ns" firstAttribute="top" secondItem="dns-Pp-Ein" secondAttribute="top" constant="14" id="AmW-8f-wKP"/>
+                                                <constraint firstItem="Zd6-4C-6ns" firstAttribute="leading" secondItem="dns-Pp-Ein" secondAttribute="leading" constant="12" id="Ttl-fe-rtZ"/>
+                                                <constraint firstItem="4Wa-pb-9KM" firstAttribute="top" secondItem="dns-Pp-Ein" secondAttribute="top" constant="36" id="Xcn-MO-BZo"/>
+                                                <constraint firstAttribute="bottom" secondItem="Zd6-4C-6ns" secondAttribute="bottom" constant="10.67" id="mDL-Yl-voK"/>
+                                                <constraint firstAttribute="bottom" secondItem="4Wa-pb-9KM" secondAttribute="bottom" constant="36.670000000000002" id="t9C-I7-3J5"/>
+                                                <constraint firstItem="4Wa-pb-9KM" firstAttribute="leading" secondItem="Zd6-4C-6ns" secondAttribute="trailing" constant="34" id="tUd-9N-UPb"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="activityLabel" destination="Zd6-4C-6ns" id="DjJ-1u-ItV"/>
-                                            <outlet property="categoryLabel" destination="4Wa-pb-9KM" id="wF0-9h-awF"/>
+                                            <outlet property="activityLabel" destination="Zd6-4C-6ns" id="rtx-87-qI6"/>
+                                            <outlet property="categoryLabel" destination="4Wa-pb-9KM" id="frG-lo-wBC"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -512,12 +533,14 @@
                     </view>
                     <connections>
                         <outlet property="cityNameLabel" destination="JMK-Rg-4i4" id="ZiZ-SS-RYM"/>
-                        <outlet property="cityTableView" destination="bPQ-e0-9BQ" id="98q-EZ-8ag"/>
+                        <outlet property="hotelLabel" destination="Jor-Vg-CpB" id="0L7-e9-HVu"/>
+                        <outlet property="tableView" destination="bPQ-e0-9BQ" id="j1C-Hc-eXN"/>
+                        <outlet property="transportationLabel" destination="mQ4-dT-4qN" id="TvC-8C-ZTV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lk7-yI-kgf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7080" y="68"/>
+            <point key="canvasLocation" x="7079.7101449275369" y="67.633928571428569"/>
         </scene>
         <!--Trip Name View Controller-->
         <scene sceneID="T1Z-W3-ksM">

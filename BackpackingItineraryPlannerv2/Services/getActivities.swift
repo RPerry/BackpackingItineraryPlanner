@@ -42,13 +42,13 @@ func getActivities(city: String, duration: Int, activityCategories: Array<String
         extraActivities -= 1
     }
     
-    print(numberOfActivitiesPerCategory)
+//    print(numberOfActivitiesPerCategory)
     
     for (category, numberofActivities) in numberOfActivitiesPerCategory {
         numberofTotalActivities += Int(numberofActivities)
     }
     
-    activitiesAPI(numberOfActivitiesPerCategory: numberOfActivitiesPerCategory, location: location, apiKey: apiKey, cityLocation: cityLocation, numberofTotalActivities: numberofTotalActivities, onComplete: {return})
+    activitiesAPI(numberOfActivitiesPerCategory: numberOfActivitiesPerCategory, location: location, apiKey: apiKey, cityLocation: cityLocation, numberofTotalActivities: numberofTotalActivities, onComplete: onComplete)
 //        for (category, numberofActivities) in numberOfActivitiesPerCategory {
 //            Alamofire.request("https://maps.googleapis.com/maps/api/place/textsearch/json?query=\(category)+in+\(location)&key=\(apiKey)")
 //                .responseJSON { (responseData) -> Void in
@@ -104,20 +104,20 @@ func activitiesAPI(numberOfActivitiesPerCategory: [String: Double], location: St
                         
                         let activity = Activity(name: name.rawString()!, activityType: category, infoTags: tagArray, lat: Double(lat!) as! Double, long: Double(long!) as! Double, rating: Double(rating!) as! Double)
                         //                            print("data from activity object")
-                        print(activity!.name)
+//                        print(activity!.name)
 //                        activitiesArray.append(activity)
                         cityLocation.activities!.append(activity!)
-                        print("activities array count: \(cityLocation.activities!.count)")
+//                        print("activities array count: \(cityLocation.activities!.count)")
                         i += 1
                         activityCount += 1
                         print(activityCount)
                         if activityCount == Int(numberofActivities) {
                             responseCount += 1
                         }
-                        print("Response count: \(responseCount)")
-                        print("Number of activity categories: \(numberOfActivitiesPerCategory.count)")
+//                        print("Response count: \(responseCount)")
+//                        print("Number of activity categories: \(numberOfActivitiesPerCategory.count)")
                         if responseCount == numberOfActivitiesPerCategory.count{
-                            print("finally at activities on complete")
+//                            print("finally at activities on complete")
                             onComplete()
                         }
                     }
