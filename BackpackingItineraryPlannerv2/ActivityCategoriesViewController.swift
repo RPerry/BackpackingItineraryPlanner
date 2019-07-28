@@ -19,8 +19,13 @@ class ActivityCategoriesViewController: UIViewController, UITextFieldDelegate {
     var category: String = ""
     var categoryLabelString: String = ""
     
+    @IBOutlet weak var chosenHeader: UILabel!
     @IBOutlet weak var ActivityCategoryDropDown: DropDown!
     @IBOutlet weak var chosenCategoriesLabel: UILabel!
+    @IBOutlet weak var addCategoryButton: UIButton!
+    @IBOutlet weak var submitButton: UIButton!
+    
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier ==
@@ -49,10 +54,25 @@ class ActivityCategoriesViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.addBackground(imageName: "lighterbluegradient")
+        
+        submitButton.backgroundColor = UIColor(red:0.33, green:0.42, blue:0.65, alpha:1.0)
+        submitButton.layer.cornerRadius = 5
+        submitButton.layer.borderWidth = 1
+        submitButton.layer.borderColor = UIColor(red:0.33, green:0.42, blue:0.65, alpha:1.0).cgColor
+        
+        addCategoryButton.backgroundColor = UIColor(red:0.33, green:0.42, blue:0.65, alpha:1.0)
+        addCategoryButton.layer.cornerRadius = 5
+        addCategoryButton.layer.borderWidth = 1
+        addCategoryButton.layer.borderColor = UIColor(red:0.33, green:0.42, blue:0.65, alpha:1.0).cgColor
+        
+        let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: chosenHeader.text!)
+        attributeString.addAttribute(NSAttributedString.Key.underlineStyle, value: 1, range: NSMakeRange(0, attributeString.length))
+        
+        
+        ActivityCategoryDropDown.rowBackgroundColor = .clear
         ActivityCategoryDropDown.selectedRowColor = .lightGray
         ActivityCategoryDropDown.optionArray = ["Parks", "Historical", "Nightlife", "Restaurants", "Shopping", "Museums"]
-        
-        chosenCategoriesLabel.layer.borderWidth = 1.0
         
         ActivityCategoryDropDown.didSelect{(selectedText , index ,id) in
             self.category = selectedText
@@ -76,23 +96,64 @@ class ActivityCategoriesViewController: UIViewController, UITextFieldDelegate {
         daysPerCity(cities: trip!.cities!, trip: trip!, onComplete: {
             getDatesForLocations(cities: self.trip!.cities!, tripStartDate: self.trip!.startDate!, tripEndDate: self.trip!.endDate!)
             
-            for city in self.trip!.cities! {
+            loop(onComplete: {
+                print("in on complete")
+                self.performSegue(withIdentifier: "ActivityCategoriesVCToTripItineraryVC", sender: self)
+                })
+//            for city in self.trip!.cities! {
+//
+////                city.activities =
+//                    getActivities(city: city.title, duration: city.duration, activityCategories: self.trip!.activityCategories!, budget: self.trip!.budget!, cityLocation: city)
+//
+//                let calendar = Calendar.current
+//                let checkoutDate = calendar.date(byAdding: .day, value: 1, to: city.endDate!)
+//
+//                if city.endDate == self.trip?.endDate {
+//                    city.hotel = getHotel(city: city.title, checkinDate: city.startDate!, checkoutDate: city.endDate!, locationSize: city.locationSize, budget: self.trip!.budget!)
+//                } else {
+//                    city.hotel = getHotel(city: city.title, checkinDate: city.startDate!, checkoutDate: checkoutDate!, locationSize: city.locationSize, budget: self.trip!.budget!)
+//                }
+//            }
 
-                city.activities = getActivities(city: city.title, duration: city.duration, activityCategories: self.trip!.activityCategories!, budget: self.trip!.budget!)
+//            self.performSegue(withIdentifier: "ActivityCategoriesVCToTripItineraryVC", sender: self)
+        })
+        
+        func loop(onComplete: @escaping () -> Void) -> Void {
+            for city in self.trip!.cities! {
+                
+                //                city.activities =
+                getActivities(city: city.title, duration: city.duration, activityCategories: self.trip!.activityCategories!, budget: self.trip!.budget!, cityLocation: city)
                 
                 let calendar = Calendar.current
                 let checkoutDate = calendar.date(byAdding: .day, value: 1, to: city.endDate!)
-               
+                
                 if city.endDate == self.trip?.endDate {
                     city.hotel = getHotel(city: city.title, checkinDate: city.startDate!, checkoutDate: city.endDate!, locationSize: city.locationSize, budget: self.trip!.budget!)
                 } else {
                     city.hotel = getHotel(city: city.title, checkinDate: city.startDate!, checkoutDate: checkoutDate!, locationSize: city.locationSize, budget: self.trip!.budget!)
                 }
             }
+            onComplete()
+        }
+        
+        func segue() {
             self.performSegue(withIdentifier: "ActivityCategoriesVCToTripItineraryVC", sender: self)
-//            let vc: TripItineraryViewController = TripItineraryViewController()
-//            self.present(vc, animated: true, completion: nil)
-        })
+        }
+        
+//        func printFunction() {
+//            print("loop has finished")
+//        }
+//
+//        // New for loop syntax and naming convention
+//        func loop(withCompletion completion: () -> Void ) {
+//            for i in 0 ..< 5 {
+//                print(i)
+//            }
+//            completion()
+//        }
+//        Then call it like this:
+//
+//        loop(withCompletion: segue)
         
         
         

@@ -14,6 +14,7 @@ class startDateEndDateViewController: UIViewController, UITextFieldDelegate {
     private var startDatePicker: UIDatePicker?
     private var endDatePicker: UIDatePicker?
     
+    @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var endDateTextField: UITextField!
     
     @IBOutlet weak var shortDurationWarningLabel: UILabel!
@@ -36,13 +37,13 @@ class startDateEndDateViewController: UIViewController, UITextFieldDelegate {
         if (trip!.duration)! < trip!.cities!.count {
             shortDurationWarningLabel.text = "Trip Duration Is Not Long Enough to Visit All Cities"
         } else {
-            self.performSegue(withIdentifier: "traveldatesVCtopracticerouteVC", sender: self)
+            self.performSegue(withIdentifier: "travelDatesVCtoBudgetVC", sender: self)
         }
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if(segue.identifier == "traveldatesVCtopracticerouteVC"){
-            let displayVC = segue.destination as! PracticeRouteViewController
+        if(segue.identifier == "travelDatesVCtoBudgetVC"){
+            let displayVC = segue.destination as! BudgetViewController
             displayVC.tripName = trip?.tripName
             displayVC.trip = trip
         }
@@ -50,6 +51,18 @@ class startDateEndDateViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.addBackground(imageName: "lighterbluegradient")
+        
+        startDateTextField.addLine(position: .LINE_POSITION_BOTTOM, color: .black, width: 0.5)
+        endDateTextField.addLine(position: .LINE_POSITION_BOTTOM, color: .black, width: 0.5)
+        
+        submitButton.backgroundColor = UIColor(red:0.33, green:0.42, blue:0.65, alpha:1.0)
+        submitButton.layer.cornerRadius = 5
+        submitButton.layer.borderWidth = 1
+        submitButton.layer.borderColor = UIColor(red:0.33, green:0.42, blue:0.65, alpha:1.0).cgColor
+        
+        
         
         startDatePicker = UIDatePicker()
         startDatePicker?.datePickerMode = .date

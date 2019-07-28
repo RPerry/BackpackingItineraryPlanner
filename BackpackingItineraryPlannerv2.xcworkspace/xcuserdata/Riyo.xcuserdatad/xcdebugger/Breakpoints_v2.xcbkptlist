@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BackpackingItineraryPlannerv2/TripNameViewController.swift"
-            timestampString = "585887404.017498"
+            timestampString = "585980170.307267"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "5"
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BackpackingItineraryPlannerv2/startDateEndDateViewController.swift"
-            timestampString = "585887404.017825"
+            timestampString = "585983177.441589"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "18"
-            endingLineNumber = "18"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
             landmarkName = "startDateEndDateViewController"
             landmarkType = "3">
             <Locations>

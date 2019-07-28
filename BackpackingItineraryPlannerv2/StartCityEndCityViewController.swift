@@ -83,7 +83,6 @@ class StartCityEndCityViewController: UIViewController, UITextFieldDelegate {
 //            print(data)
 //        }
         
-        tripNameLabel.text = tripName
         
         startCityTextField.delegate = self
         endCityTextField.delegate = self

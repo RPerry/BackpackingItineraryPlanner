@@ -20,6 +20,8 @@ class BudgetViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var budgetdropdown: DropDown!
     
+    @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var budgetLabel: UILabel!
     @IBAction func budgetOnClick(_ sender: Any) {
         trip?.budget = tripBudget
         
@@ -37,8 +39,17 @@ class BudgetViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.addBackground(imageName: "lighterbluegradient")
+        
+        submitButton.backgroundColor = UIColor(red:0.33, green:0.42, blue:0.65, alpha:1.0)
+        submitButton.layer.cornerRadius = 5
+        submitButton.layer.borderWidth = 1
+        submitButton.layer.borderColor = UIColor(red:0.33, green:0.42, blue:0.65, alpha:1.0).cgColor
+        
+        
         budgetdropdown.selectedRowColor = .lightGray
-        budgetdropdown.optionArray = ["💲", "💲💲", "💲💲💲"]
+        budgetdropdown.rowBackgroundColor = .clear
+        budgetdropdown.optionArray = ["💸", "💸💸", "💸💸💸"]
         budgetdropdown.optionIds = [1,2,3]
         
         //    // The the Closure returns Selected Index and String

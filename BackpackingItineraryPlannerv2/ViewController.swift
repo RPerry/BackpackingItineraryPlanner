@@ -19,6 +19,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var mapView: MKMapView!
     
     @IBOutlet weak var cityTextField: UITextField!
+    @IBOutlet weak var addCityButton: UIButton!
+    @IBOutlet weak var citiesSubmitButton: UIButton!
     
     @IBOutlet weak var cityTripLabel: UILabel!
     
@@ -87,6 +89,21 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.addBackground(imageName: "lighterbluegradient")
+        
+        cityTextField.addLine(position: .LINE_POSITION_BOTTOM, color: .black, width: 0.5)
+        
+        addCityButton.backgroundColor = UIColor(red:0.33, green:0.42, blue:0.65, alpha:1.0)
+        addCityButton.layer.cornerRadius = 5
+        addCityButton.layer.borderWidth = 1
+        addCityButton.layer.borderColor = UIColor(red:0.33, green:0.42, blue:0.65, alpha:1.0).cgColor
+        
+        citiesSubmitButton.backgroundColor = UIColor(red:0.33, green:0.42, blue:0.65, alpha:1.0)
+        citiesSubmitButton.layer.cornerRadius = 5
+        citiesSubmitButton.layer.borderWidth = 1
+        citiesSubmitButton.layer.borderColor = UIColor(red:0.33, green:0.42, blue:0.65, alpha:1.0).cgColor
+        
         let startTripLabels = checkForSpace(userCity: trip!.startCity!)
         getCityLatAndLong(city: startTripLabels.api, title: startTripLabels.map, countryCode: "US", onComplete: { location -> Void in
             if let loc = location {

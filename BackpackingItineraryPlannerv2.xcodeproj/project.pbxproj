@@ -33,6 +33,7 @@
 		772924AD22EBCCAB00F4A183 /* luggage.png in Resources */ = {isa = PBXBuildFile; fileRef = 772924AC22EBCCAB00F4A183 /* luggage.png */; };
 		772924AF22EBD40500F4A183 /* backgroundimagetofit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772924AE22EBD40500F4A183 /* backgroundimagetofit.swift */; };
 		772924B122EBE9BB00F4A183 /* bottomBorderTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772924B022EBE9BB00F4A183 /* bottomBorderTextField.swift */; };
+		77899CFE22ECDE38005AE6B9 /* CityDayCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77899CFD22ECDE38005AE6B9 /* CityDayCustomCell.swift */; };
 		77EC7E3022D5163A007A5E30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EC7E2F22D5163A007A5E30 /* AppDelegate.swift */; };
 		77EC7E3222D5163A007A5E30 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EC7E3122D5163A007A5E30 /* ViewController.swift */; };
 		77EC7E3522D5163A007A5E30 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77EC7E3322D5163A007A5E30 /* Main.storyboard */; };
@@ -74,6 +75,7 @@
 		772924AC22EBCCAB00F4A183 /* luggage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = luggage.png; sourceTree = "<group>"; };
 		772924AE22EBD40500F4A183 /* backgroundimagetofit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = backgroundimagetofit.swift; sourceTree = "<group>"; };
 		772924B022EBE9BB00F4A183 /* bottomBorderTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bottomBorderTextField.swift; sourceTree = "<group>"; };
+		77899CFD22ECDE38005AE6B9 /* CityDayCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDayCustomCell.swift; sourceTree = "<group>"; };
 		77EC7E2C22D5163A007A5E30 /* BackpackingItineraryPlannerv2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BackpackingItineraryPlannerv2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77EC7E2F22D5163A007A5E30 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77EC7E3122D5163A007A5E30 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				772924AA22EBCA2000F4A183 /* StartPageViewController.swift */,
 				772924A422EB9A9800F4A183 /* V2ItineraryViewController.swift */,
 				772924A822EBB36700F4A183 /* CityItineraryDetails.swift */,
+				77899CFD22ECDE38005AE6B9 /* CityDayCustomCell.swift */,
 				772924A622EBAC7800F4A183 /* ItineraryCustomCell.swift */,
 				7729247222DF8FCA00F4A183 /* ActivityCategoriesViewController.swift */,
 				7729249E22EA7A9300F4A183 /* TripItineraryViewController.swift */,
@@ -365,6 +368,7 @@
 				7729248522E28DBE00F4A183 /* getAllCitiesTransportation.swift in Sources */,
 				772924B122EBE9BB00F4A183 /* bottomBorderTextField.swift in Sources */,
 				7729247D22E1472200F4A183 /* cityPopulation.swift in Sources */,
+				77899CFE22ECDE38005AE6B9 /* CityDayCustomCell.swift in Sources */,
 				7729246D22DD2E3700F4A183 /* stringtodate.swift in Sources */,
 				7729247922E1447200F4A183 /* Hotel.swift in Sources */,
 			);

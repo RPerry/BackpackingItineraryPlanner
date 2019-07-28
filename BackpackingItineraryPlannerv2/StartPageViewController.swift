@@ -21,10 +21,12 @@ class StartPageViewController: UIViewController {
         newItineraryButton.backgroundColor = UIColor(red:0.33, green:0.42, blue:0.65, alpha:1.0)
         newItineraryButton.layer.cornerRadius = 5
         newItineraryButton.layer.borderWidth = 1
+        newItineraryButton.layer.borderColor = UIColor(red:0.33, green:0.42, blue:0.65, alpha:1.0).cgColor
         
         viewSavedItineraryButton.backgroundColor = UIColor(red:0.33, green:0.42, blue:0.65, alpha:1.0)
         viewSavedItineraryButton.layer.cornerRadius = 5
         viewSavedItineraryButton.layer.borderWidth = 1
+        viewSavedItineraryButton.layer.borderColor = UIColor(red:0.33, green:0.42, blue:0.65, alpha:1.0).cgColor
     }
 }
 
