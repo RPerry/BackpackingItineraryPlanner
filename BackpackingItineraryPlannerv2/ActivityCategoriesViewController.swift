@@ -47,6 +47,7 @@ class ActivityCategoriesViewController: UIViewController, UITextFieldDelegate {
         categoryLabelString += "\n"
         categoryLabelString += category
         chosenCategoriesLabel.text = categoryLabelString
+        chosenCategoriesLabel.sizeToFit()
 //        chosenCategoriesLabel.frame.size.width = 100
 //        chosenCategoriesLabel.frame.size.height = 100
         ActivityCategoryDropDown.optionArray.removeAll { $0 == category }
@@ -70,6 +71,13 @@ class ActivityCategoriesViewController: UIViewController, UITextFieldDelegate {
         
         let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: chosenHeader.text!)
         attributeString.addAttribute(NSAttributedString.Key.underlineStyle, value: 1, range: NSMakeRange(0, attributeString.length))
+        
+        let wholeStr = chosenHeader.text
+        let range = chosenHeader.text!.count
+        let rangeToUnderLine = NSRange(location: 0, length: range)
+        let underLineTxt = NSMutableAttributedString(string: wholeStr!, attributes: [NSAttributedString.Key.font:UIFont.systemFont(ofSize: 20),NSAttributedString.Key.foregroundColor: UIColor.lightGray.withAlphaComponent(0.8)])
+        underLineTxt.addAttribute(NSAttributedString.Key.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: rangeToUnderLine)
+        chosenHeader.attributedText = underLineTxt
         
         
         ActivityCategoryDropDown.rowBackgroundColor = .clear

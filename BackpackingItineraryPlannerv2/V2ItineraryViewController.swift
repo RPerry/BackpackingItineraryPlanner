@@ -28,6 +28,7 @@ class V2ItineraryViewController:  UIViewController, MKMapViewDelegate, UITableVi
         super.viewDidLoad()
         
         view.addBackground(imageName: "lighterbluegradient")
+        self.tableView.backgroundColor = UIColor.clear
         
         var totalCost = 0.0
         
@@ -52,6 +53,11 @@ class V2ItineraryViewController:  UIViewController, MKMapViewDelegate, UITableVi
         return trip!.cities!.count
     }
     
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        cell.backgroundColor = UIColor.clear
+    }
+    
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:ItineraryCustomCell = self.tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as! ItineraryCustomCell
         
@@ -59,7 +65,6 @@ class V2ItineraryViewController:  UIViewController, MKMapViewDelegate, UITableVi
         cell.city = city
         return cell
     }
-    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             if(segue.identifier ==
