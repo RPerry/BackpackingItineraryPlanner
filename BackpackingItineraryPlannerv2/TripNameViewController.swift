@@ -62,7 +62,9 @@ class TripNameViewController: UIViewController, UITextFieldDelegate {
         self.view.addGestureRecognizer(tapRecogniser)
         
 //        deletelater!!!
-//        print(cityPopulation(userCity: "New York"))
+        let duration = Double(1881) / 60.0
+        print("Duration remainder: \(Int(duration.truncatingRemainder(dividingBy: 1) * 100))")
+        //print(cityPopulation(userCity: "New York"))
     }
     
 }

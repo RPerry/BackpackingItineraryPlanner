@@ -10,6 +10,7 @@ import Foundation
 
 import UIKit
 import iOSDropDown
+import Firebase
 
 class ActivityCategoriesViewController: UIViewController, UITextFieldDelegate {
 
@@ -18,6 +19,7 @@ class ActivityCategoriesViewController: UIViewController, UITextFieldDelegate {
     var activityCategories: Array<String> = []
     var category: String = ""
     var categoryLabelString: String = ""
+//    let ref = Database.database().reference()
     
     @IBOutlet weak var chosenHeader: UILabel!
     @IBOutlet weak var ActivityCategoryDropDown: DropDown!
@@ -91,14 +93,32 @@ class ActivityCategoriesViewController: UIViewController, UITextFieldDelegate {
 //        Transportation!!!
         
         getAllCitiesTransportation(trip: trip!, allCities: trip!.cities!, budget: trip!.budget!, onComplete: {
-        
+        print("in get all cities transportation oncomplete")
 //        Activities!!!!
             daysPerCity(cities: self.trip!.cities!, trip: self.trip!, onComplete: {
             getDatesForLocations(cities: self.trip!.cities!, tripStartDate: self.trip!.startDate!, tripEndDate: self.trip!.endDate!)
             
             loop(onComplete: {
-                print("in on complete")
-                print("NUmber of transportation \(self.trip?.transportation?.count)")
+//                for city in self.trip!.cities! {
+//                    print("hotels name: \(city.hotel!.name)")
+//                    print("hotels name: \(city.hotel!.cost)")
+//                }
+//                self.ref.child("\(self.trip!.tripName!)/tripName").setValue("\(self.trip!.tripName!)")
+//                self.ref.child("\(self.trip!.tripName!)/startCity").setValue("\(self.trip!.startCity!)")
+//                self.ref.child("\(self.trip!.tripName!)/endCity").setValue("\(self.trip!.endCity!)")
+//                self.ref.child("\(self.trip!.tripName!)/startDate").setValue("\(self.trip!.startDate!)")
+//                self.ref.child("\(self.trip!.tripName!)/endDate").setValue("\(self.trip!.endDate!)")
+//                self.ref.child("\(self.trip!.tripName!)/cities").setValue("\(self.trip!.cities!)")
+//                self.ref.child("\(self.trip!.tripName!)/budget").setValue("\(self.trip!.budget!)")
+//                self.ref.child("\(self.trip!.tripName!)/activityCategories").setValue("\(self.trip!.activityCategories!)")
+//                self.ref.child("\(self.trip!.tripName!)/duration").setValue("\(self.trip!.duration!)")
+//               
+//                print(self.trip!.locations)
+////                self.ref.child("\(self.trip!.tripName!)/locations").setValue("\(self.trip!.locations!)")
+//                self.ref.child("\(self.trip!.tripName!)/transportation").setValue("\(self.trip!.transportation!)")
+//                self.ref.child("\(self.trip!.tripName!)/price").setValue("\(self.trip!.price!)")
+                
+                
                 self.performSegue(withIdentifier: "ActivityCategoriesVCToTripItineraryVC", sender: self)
                 })
             })
@@ -133,8 +153,9 @@ class ActivityCategoriesViewController: UIViewController, UITextFieldDelegate {
                     let checkoutDate = calendar.date(byAdding: .day, value: 1, to: city.endDate!)
                     
                     if city.endDate == self.trip?.endDate {
-                        getHotel(city: city.title, checkinDate: city.startDate!, checkoutDate: city.endDate!, locationSize: city.locationSize, budget: self.trip!.budget!, onComplete: { hotel -> Void in
+                        getHotel(city: city.title, checkinDate: city.startDate!, checkoutDate: city.endDate!, locationSize: city.locationSize, budget: self.trip!.budget!, cityLocation: city, onComplete: { hotel -> Void in
                             city.hotel = hotel
+                            print("in get activities hotellll: \(city.hotel!.name)")
                             allCalls += 1
 //                            print("in get hotel oncomplete")
 //                            print("All Calls: \(allCalls)")
@@ -147,7 +168,7 @@ class ActivityCategoriesViewController: UIViewController, UITextFieldDelegate {
                             }
                         })
                     } else {
-                        getHotel(city: city.title, checkinDate: city.startDate!, checkoutDate: checkoutDate!, locationSize: city.locationSize, budget: self.trip!.budget!, onComplete: { hotel -> Void in
+                        getHotel(city: city.title, checkinDate: city.startDate!, checkoutDate: checkoutDate!, locationSize: city.locationSize, budget: self.trip!.budget!, cityLocation: city, onComplete: { hotel -> Void in
                             city.hotel = hotel
                             allCalls += 1
 //                            print("in get hotel oncomplete")

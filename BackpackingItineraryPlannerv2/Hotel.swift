@@ -13,10 +13,10 @@ class Hotel {
     var checkIn: Date?
     var checkOut: Date?
     var cost: Double?
-    var lat: String?
-    var long: String?
+    var lat: Double?
+    var long: Double?
     
-    init?(name: String?, checkIn: Date?, checkOut: Date?, cost: Double?, lat: String?, long: String?) {
+    init?(name: String?, checkIn: Date?, checkOut: Date?, cost: Double?, lat: Double?, long: Double?) {
        
         self.name = name
         self.checkIn = checkIn

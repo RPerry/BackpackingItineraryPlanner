@@ -27,7 +27,6 @@ func getAllCitiesTransportation(trip: Trip, allCities: Array<Location>, budget: 
 //                print("Trip transportation count: \(tripTransportation.count)")
             j += 1
             if j == cities.count - 1 {
-                print("Trip transportation count: \(tripTransportation.count)")
                 trip.transportation = tripTransportation
                 onComplete()
             }

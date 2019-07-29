@@ -110,7 +110,6 @@ func activitiesAPI(numberOfActivitiesPerCategory: [String: Double], location: St
 //                        print("activities array count: \(cityLocation.activities!.count)")
                         i += 1
                         activityCount += 1
-                        print(activityCount)
                         if activityCount == Int(numberofActivities) {
                             responseCount += 1
                         }

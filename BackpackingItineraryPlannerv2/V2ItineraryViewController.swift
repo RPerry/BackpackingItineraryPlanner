@@ -15,6 +15,7 @@ class V2ItineraryViewController:  UIViewController, MKMapViewDelegate, UITableVi
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var ItineraryLabel: UILabel!
     @IBOutlet weak var ItineraryTableView: UITableView!
+    @IBOutlet weak var TotalTripCostLabel: UILabel!
     
     var tripName: String?
     var trip: Trip?
@@ -26,15 +27,25 @@ class V2ItineraryViewController:  UIViewController, MKMapViewDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.addBackground(imageName: "lighterbluegradient")
+        
+        var totalCost = 0.0
         
         for city in trip!.cities! {
             addAnnotation(location: city)
-            print("\(city.title) activity count: \(city.activities!.count)")
+//            print("\(city.title) hotel name: \(city.activities!.count)")
+//            totalCost += city.hotel!.cost!
+        }
+        
+        for transportation in trip!.transportation! {
+            totalCost += transportation.cost
         }
         
         tableView.delegate = self
         tableView.dataSource = self
         ItineraryLabel.text = "\(trip!.tripName!) Itinerary"
+        TotalTripCostLabel.text = "Total Trip Cost: $\(totalCost)"
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
