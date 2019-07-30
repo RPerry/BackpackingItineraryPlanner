@@ -99,7 +99,6 @@ class ActivityCategoriesViewController: UIViewController, UITextFieldDelegate {
 //        cost not including activities
         
 //        Transportation!!!
-        
         getAllCitiesTransportation(trip: trip!, allCities: trip!.cities!, budget: trip!.budget!, onComplete: {
         print("in get all cities transportation oncomplete")
 //        Activities!!!!

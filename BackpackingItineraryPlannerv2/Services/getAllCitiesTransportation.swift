@@ -23,6 +23,7 @@ func getAllCitiesTransportation(trip: Trip, allCities: Array<Location>, budget: 
         getTransporation(startCity: cities[c1], endCity: cities[c2], budget: budget, onComplete: {transportation -> Void in
             if let transport = transportation {
                 print(transport.company)
+                print(transport.startCity)
                 tripTransportation.append(transport)
 //                print("Trip transportation count: \(tripTransportation.count)")
             j += 1

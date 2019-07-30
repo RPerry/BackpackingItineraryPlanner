@@ -13,12 +13,18 @@ class CityDayCustomCell: UITableViewCell {
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var activityLabel: UILabel!
     
-    
     var activity: Activity? {
         didSet {
             guard let activity = activity else { return }
             print(activity)
-            categoryLabel.text = activity.activityType
+            let lastChar = activity.activityType.last!
+            var type = activity.activityType
+            if lastChar == "s" {
+                type.remove(at: type.index(before: type.endIndex))
+                categoryLabel.text = type
+            } else {
+                categoryLabel.text = activity.activityType
+            }
             activityLabel.text = activity.name
 //            dateLabel.text = "\(myStartDateString) - \(myEndDateString)"
         }

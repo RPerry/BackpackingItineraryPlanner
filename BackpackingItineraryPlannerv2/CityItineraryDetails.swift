@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 
+
 class CityItineraryDetails:  UIViewController, MKMapViewDelegate, UITableViewDelegate, UITableViewDataSource {
     
     var tripName: String?
@@ -63,11 +64,20 @@ class CityItineraryDetails:  UIViewController, MKMapViewDelegate, UITableViewDel
         self.cityDetailMapView.showAnnotations(self.cityDetailMapView.annotations, animated: true)
         
         if rowClicked! != trip!.cities!.count - 1 {
-            let transportation = trip!.transportation![rowClicked!]
-            let duration = Double(transportation.duration) / 60.0
-            print("duration \(duration)")
-            transportationLabel.text = "Transportation from \(transportation.startCity) to \(transportation.endCity): \n \(transportation.type) - \(transportation.company) \n Cost: $\(Int(transportation.cost)) \n Duration: \(Int(duration)) hr \(Int(duration.truncatingRemainder(dividingBy: 1) * 100)) min"
-        } else {
+            
+            for transport in trip!.transportation! {
+                if transport.startCity == trip!.cities![rowClicked!].title {
+                    let transportation = transport
+                    let duration = Double(transportation.duration) / 60.0
+                    transportationLabel.text = "Transportation from \(transportation.startCity) to \(transportation.endCity): \n \(transportation.type) - \(transportation.company) \n Cost: $\(Int(transportation.cost)) \n Duration: \(Int(duration)) hr \(Int(duration.truncatingRemainder(dividingBy: 1) * 100)) min"
+                }
+            }
+//            print(trip!.transportation![rowClicked!].startCity)
+//            let transportation = trip!.transportation![rowClicked!]
+//            let duration = Double(transportation.duration) / 60.0
+//            print("duration \(duration)")
+//            transportationLabel.text = "Transportation from \(transportation.startCity) to \(transportation.endCity): \n \(transportation.type) - \(transportation.company) \n Cost: $\(Int(transportation.cost)) \n Duration: \(Int(duration)) hr \(Int(duration.truncatingRemainder(dividingBy: 1) * 100)) min"
+            } else {
             transportationLabel.text = "Transportation: \n Your Trip Is Over!"
         }
     }

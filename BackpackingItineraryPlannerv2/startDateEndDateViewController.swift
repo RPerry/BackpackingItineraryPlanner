@@ -72,17 +72,23 @@ class startDateEndDateViewController: UIViewController, UITextFieldDelegate {
         endDatePicker?.datePickerMode = .date
         endDatePicker?.addTarget(self, action: #selector(startDateEndDateViewController.endDateChanged(endDatePicker:)), for: .valueChanged)
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(startDateEndDateViewController.viewTapped(gestureRecognizer:)))
+//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(startDateEndDateViewController.viewTapped(gestureRecognizer:)))
+//
+//
+//        view.addGestureRecognizer(tapGesture)
         
-
-        view.addGestureRecognizer(tapGesture)
+        let tapRecogniser = UITapGestureRecognizer()
+        tapRecogniser.addTarget(self, action: #selector(self.viewTapped))
+        self.view.addGestureRecognizer(tapRecogniser)
         
         startDateTextField.inputView = startDatePicker
         endDateTextField.inputView = endDatePicker
     }
     
+    
+    
     @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer) {
-        view.endEditing(true)
+        self.view.endEditing(true)
     }
     
     @objc func startDateChanged(startDatePicker: UIDatePicker) {
@@ -90,7 +96,7 @@ class startDateEndDateViewController: UIViewController, UITextFieldDelegate {
         dateFormatter.dateFormat = "MM/dd/yy"
         
         startDateTextField.text = dateFormatter.string(from: startDatePicker.date)
-            view.endEditing(true )
+//            view.endEditing(true )
     }
     
     @objc func endDateChanged(endDatePicker: UIDatePicker) {
@@ -98,7 +104,7 @@ class startDateEndDateViewController: UIViewController, UITextFieldDelegate {
         dateFormatter.dateFormat = "MM/dd/yy"
         
         endDateTextField.text = dateFormatter.string(from: endDatePicker.date)
-        view.endEditing(true )
+//        view.endEditing(true )
     }
 }
 
