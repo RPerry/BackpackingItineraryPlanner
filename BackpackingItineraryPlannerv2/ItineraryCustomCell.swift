@@ -33,7 +33,8 @@ class ItineraryCustomCell: UITableViewCell {
     var cityImages = ["Los Angeles":"island",
                       "Dallas": "cowboy",
                       "Seattle": "space-needle",
-                      "New York": "statue-of-liberty"
+                      "New York": "statue-of-liberty",
+                      "Salt Lake City": "mountains"
     ]
     
     var city: Location? {

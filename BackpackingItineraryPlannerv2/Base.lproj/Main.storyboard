@@ -622,7 +622,7 @@
                                     <constraint firstAttribute="height" constant="50" id="5Ug-eK-oWS"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="17"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" red="0.73935862815924702" green="0.73935862815924702" blue="0.73935862815924702" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bPQ-e0-9BQ">
@@ -640,21 +640,22 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="eBP-5g-aet">
-                                                    <rect key="frame" x="162" y="23.666666666666668" width="90" height="52.333333333333329"/>
+                                                    <rect key="frame" x="143.66666666666666" y="15.333333333333336" width="126.99999999999997" height="69.333333333333314"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Activity Info" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zd6-4C-6ns">
-                                                            <rect key="frame" x="0.0" y="0.0" width="90" height="20.333333333333332"/>
+                                                            <rect key="frame" x="29" y="8.9999999999999982" width="90" height="20.333333333333329"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="textColor" red="0.71280802536736898" green="0.71280802536736898" blue="0.71280802536736898" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Wa-pb-9KM">
-                                                            <rect key="frame" x="0.0" y="35.333333333333329" width="90" height="17"/>
+                                                            <rect key="frame" x="29" y="44.333333333333329" width="90" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="textColor" red="0.71923251775315578" green="0.71923251775315578" blue="0.71923251775315578" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
+                                                    <directionalEdgeInsets key="directionalLayoutMargins" top="9" leading="29" bottom="8" trailing="8"/>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
@@ -671,12 +672,12 @@
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hotel" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jor-Vg-CpB">
-                                <rect key="frame" x="0.0" y="297" width="414" height="80"/>
+                                <rect key="frame" x="0.0" y="295" width="414" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="LoG-9e-g0x"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="17"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" red="0.7199860076008715" green="0.7199860076008715" blue="0.7199860076008715" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transportation" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mQ4-dT-4qN">
@@ -685,7 +686,6 @@
                                     <constraint firstAttribute="height" constant="122" id="3F0-kP-A4g"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="17"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="U6p-IM-TEv">
@@ -702,7 +702,7 @@
                             <constraint firstItem="mQ4-dT-4qN" firstAttribute="bottom" secondItem="E7O-fM-V3K" secondAttribute="bottom" id="7oB-je-R8K"/>
                             <constraint firstItem="U6p-IM-TEv" firstAttribute="top" secondItem="JMK-Rg-4i4" secondAttribute="bottom" id="Ccg-14-8g6"/>
                             <constraint firstAttribute="trailing" secondItem="U6p-IM-TEv" secondAttribute="trailing" id="DBi-z2-L1w"/>
-                            <constraint firstItem="Jor-Vg-CpB" firstAttribute="top" secondItem="U6p-IM-TEv" secondAttribute="bottom" constant="5" id="H6x-L4-Oh5"/>
+                            <constraint firstItem="Jor-Vg-CpB" firstAttribute="top" secondItem="U6p-IM-TEv" secondAttribute="bottom" constant="3" id="H6x-L4-Oh5"/>
                             <constraint firstAttribute="trailingMargin" secondItem="mQ4-dT-4qN" secondAttribute="trailing" id="SRe-k8-aT4"/>
                             <constraint firstItem="E7O-fM-V3K" firstAttribute="trailing" secondItem="bPQ-e0-9BQ" secondAttribute="trailing" id="SrO-nf-K2w"/>
                             <constraint firstItem="JMK-Rg-4i4" firstAttribute="top" secondItem="E7O-fM-V3K" secondAttribute="top" id="UEC-25-qYK"/>
