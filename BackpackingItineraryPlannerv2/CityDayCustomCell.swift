@@ -12,7 +12,7 @@ class CityDayCustomCell: UITableViewCell {
 //
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var activityLabel: UILabel!
-//
+    
     
     var activity: Activity? {
         didSet {
@@ -21,7 +21,6 @@ class CityDayCustomCell: UITableViewCell {
             categoryLabel.text = activity.activityType
             activityLabel.text = activity.name
 //            dateLabel.text = "\(myStartDateString) - \(myEndDateString)"
-            //            cityImageView.image = city.image
         }
     }
 }

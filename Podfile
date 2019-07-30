@@ -10,6 +10,7 @@ pod 'iOSDropDown'
 pod 'Emoji-swift'
 pod 'Firebase/Core'
 pod 'Firebase/Database'
+pod 'HCSStarRatingView', '~> 1.5'
 
 
 pod 'GoogleMaps'

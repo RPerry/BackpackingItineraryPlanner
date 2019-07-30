@@ -17,7 +17,8 @@ class CityItineraryDetails:  UIViewController, MKMapViewDelegate, UITableViewDel
 //    var allThingsinLocationDictArray: [[Date:Any]] = []
 //    var datesInLocation: [Date]?
     var randomizedActivitiesArray: [Activity] = []
-
+    var activityArrayofArrays = [[Activity]]()
+    
     let cellReuseIdentifier = "ActivityCustomCell"
     @IBOutlet weak var cityNameLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
@@ -32,7 +33,26 @@ class CityItineraryDetails:  UIViewController, MKMapViewDelegate, UITableViewDel
         cityNameLabel.text = "Daily Itinerary for \(trip!.cities![rowClicked!].title)"
         hotelLabel.text = "Hotel: \n \(trip!.cities![rowClicked!].hotel!.name!) \n Cost: $\(trip!.cities![rowClicked!].hotel!.cost!)"
         
+        tableView.rowHeight = 70
+        
+        view.addBackground(imageName: "lighterbluegradient")
+        self.tableView.backgroundColor = UIColor.clear
+        
+        
         randomizedActivitiesArray = (trip!.cities![rowClicked!].activities?.shuffled())!
+        
+        let j = trip!.cities![rowClicked!].duration
+        var l = 0
+        var m = 3
+        
+        for k in 1...j {
+            let arraySlice = randomizedActivitiesArray[l...m]
+            let array = Array(arraySlice)
+            activityArrayofArrays.append(array)
+            l += 4
+            m += 4
+        }
+        
         
         for activity in randomizedActivitiesArray {
             addActivityAnnotation(activity: activity)
@@ -54,61 +74,52 @@ class CityItineraryDetails:  UIViewController, MKMapViewDelegate, UITableViewDel
     
     func allActivitiesinLocation(location: Location) {
         print("Location: \(location.title)")
-//        var datesInLocation: [Date]
-//        var date = location.startDate
-//        if location.startDate != location.endDate {
-//            while date! <= location.endDate! {
-//                datesInLocation!.append(date!)
-//                let calendar = Calendar.current
-//                date = calendar.date(byAdding: .day, value: 1, to: date!)
-////                date = Calendar.date(byAdding: .day, value: 1, to: date)!
-//            }
-//        } else {
-//            datesInLocation!.append(date!)
-//        }
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return trip!.cities![rowClicked!].duration
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let label = UILabel()
+        let formatter = DateFormatter()
         
-//        var randomIntsforActvities: Array<Int>
-//        var randomIntsforActvities: Array<Int> = []
-//        var i = 1
-//        var numberofActivtiesCountArray: Array<Int> = []
-//        var j = 0
-//        while j <= location.activities!.count - 1 {
-//            numberofActivtiesCountArray.append(j)
-//            j += 1
-//        }
-//        while i <= (location.duration - 1) * 4 {
-//            print("Number of activities in location: \(location.activities!.count)")
-//            let randomNumber = numberofActivtiesCountArray.randomElement()!
-//            print("random number: \(randomNumber)")
-//            randomIntsforActvities.append(randomNumber)
-//            if let index = numberofActivtiesCountArray.firstIndex(of: randomNumber) {
-//                numberofActivtiesCountArray.remove(at: index)
-//            }
-//            i += 1
-//        }
-        
-//        for date in datesInLocation! {
-//        var n = 1
-//        print("Duration in city: \(location.duration)")
-//        var numberOfActivities = location.duration * 4
-//        print("randomInts array: \(randomIntsforActvities)")
-//        print("number of activities: \(numberOfActivities)")
-//        while n < numberOfActivities {
-//            allThingsinLocationArray.append(location.activities![randomIntsforActvities[n - 1]])
-//            n += 1
-//        }
-//        }
+        if section == 0 {
+            formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            let stringDate = formatter.string(from: trip!.cities![rowClicked!].startDate!)
+            let startDate = formatter.date(from: stringDate)
+            formatter.dateFormat = "EEEE, MMM d, yyyy"
+            let myStartDateString = formatter.string(from: startDate!)
+            label.text = myStartDateString
+        } else {
+            let calendar = Calendar.current
+            let endDate = calendar.date(byAdding: .day, value: section, to: trip!.cities![rowClicked!].startDate!)
+            
+            formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            let stringDate = formatter.string(from: endDate!)
+            let startDate = formatter.date(from: stringDate)
+            formatter.dateFormat = "EEEE, MMM d, yyyy"
+            let myStartDateString = formatter.string(from: startDate!)
+            label.text = myStartDateString
+        }
+        label.backgroundColor = UIColor.lightGray
+        return label
     }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return trip!.cities![rowClicked!].activities!.count + 3
+        return 4
+    }
+    
+ 
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        cell.backgroundColor = UIColor.clear
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 //         allActivitiesinLocation(location: trip!.cities![rowClicked!])
         let cell:CityDayCustomCell = self.tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as! CityDayCustomCell
-        let activity = randomizedActivitiesArray[indexPath.row]
+        let activity = activityArrayofArrays[indexPath.section][indexPath.row]
                 cell.activity = activity
                 return cell
     }

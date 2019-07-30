@@ -30,6 +30,12 @@ class ItineraryCustomCell: UITableViewCell {
 //        }
 //    }
     
+    var cityImages = ["Los Angeles":"island",
+                      "Dallas": "cowboy",
+                      "Seattle": "space-needle",
+                      "New York": "statue-of-liberty"
+    ]
+    
     var city: Location? {
         didSet {
             guard let city = city else { return }
@@ -43,8 +49,11 @@ class ItineraryCustomCell: UITableViewCell {
             formatter.dateFormat = "EEEE, MMM d, yyyy"
             let myStartDateString = formatter.string(from: startDate!)
             let myEndDateString = formatter.string(from: endDate!)
-
-
+            
+            if cityImages[city.title] != nil {
+                cityImageView.image = UIImage(named: cityImages[city.title]!)
+            }
+            
             nameLabel.text = city.title
             dateLabel.text = "\(myStartDateString) - \(myEndDateString)"
             //            cityImageView.image = city.image
