@@ -32,9 +32,10 @@ func getActivities(city: String, duration: Int, activityCategories: Array<String
         extraActivities += overWholeActivity
         let newNumberofActivities = numberofActivites - overWholeActivity
         numberOfActivitiesPerCategory.updateValue(newNumberofActivities, forKey: category)
+        print("extra activities: \(extraActivities)")
     }
     
-    if extraActivities > 0.0 {
+    while extraActivities > 0.0 {
         let category = activityCategories[0]
         var updateNumber = numberOfActivitiesPerCategory[category]
         updateNumber! += 1.0
@@ -42,7 +43,7 @@ func getActivities(city: String, duration: Int, activityCategories: Array<String
         extraActivities -= 1
     }
     
-//    print(numberOfActivitiesPerCategory)
+    print("Number of activities per category \(numberOfActivitiesPerCategory)")
     
     for (category, numberofActivities) in numberOfActivitiesPerCategory {
         numberofTotalActivities += Int(numberofActivities)

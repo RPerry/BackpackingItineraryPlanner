@@ -39,7 +39,7 @@ class CityItineraryDetails:  UIViewController, MKMapViewDelegate, UITableViewDel
         view.addBackground(imageName: "lighterbluegradient")
         self.tableView.backgroundColor = UIColor.clear
         
-        
+        print("Raw Activities array length: \(trip!.cities![rowClicked!].activities!.count)")
         randomizedActivitiesArray = (trip!.cities![rowClicked!].activities?.shuffled())!
         
         let j = trip!.cities![rowClicked!].duration
@@ -47,6 +47,7 @@ class CityItineraryDetails:  UIViewController, MKMapViewDelegate, UITableViewDel
         var m = 3
         
         for k in 1...j {
+            print("randomized activity array: \(randomizedActivitiesArray)")
             let arraySlice = randomizedActivitiesArray[l...m]
             let array = Array(arraySlice)
             activityArrayofArrays.append(array)
@@ -68,8 +69,19 @@ class CityItineraryDetails:  UIViewController, MKMapViewDelegate, UITableViewDel
             for transport in trip!.transportation! {
                 if transport.startCity == trip!.cities![rowClicked!].title {
                     let transportation = transport
-                    let duration = Double(transportation.duration) / 60.0
-                    transportationLabel.text = "Transportation from \(transportation.startCity) to \(transportation.endCity): \n \(transportation.type) - \(transportation.company) \n Cost: $\(Int(transportation.cost)) \n Duration: \(Int(duration)) hr \(Int(duration.truncatingRemainder(dividingBy: 1) * 100)) min"
+                    print("Raw transportation: \(transportation.duration)")
+                    var duration = Double(transportation.duration) / 60.0
+                    print("Duration divided by 60: \(duration)")
+                    var truncatedValue = duration.truncatingRemainder(dividingBy: 1)
+                    var newHourDuration = Int(duration)
+                    if truncatedValue * 100 > 59 {
+                        newHourDuration += 1
+                        truncatedValue *= 100
+                        truncatedValue -= 60
+                        print("truncated value: \(truncatedValue)")
+                    }
+                    
+                    transportationLabel.text = "Transportation from \(transportation.startCity) to \(transportation.endCity): \n \(transportation.type) - \(transportation.company) \n Cost: $\(Int(transportation.cost)) \n Duration: \(newHourDuration) hr \(Int(truncatedValue)) min"
                 }
             }
 //            print(trip!.transportation![rowClicked!].startCity)

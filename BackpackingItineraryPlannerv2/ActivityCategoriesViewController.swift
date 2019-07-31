@@ -124,7 +124,9 @@ class ActivityCategoriesViewController: UIViewController, UITextFieldDelegate {
 ////                self.ref.child("\(self.trip!.tripName!)/locations").setValue("\(self.trip!.locations!)")
 //                self.ref.child("\(self.trip!.tripName!)/transportation").setValue("\(self.trip!.transportation!)")
 //                self.ref.child("\(self.trip!.tripName!)/price").setValue("\(self.trip!.price!)")
-                
+                for city in self.trip!.cities! {
+                    print("Previous view: \(city.activities!.count)")
+                }
                 
                 self.performSegue(withIdentifier: "ActivityCategoriesVCToTripItineraryVC", sender: self)
                 })
