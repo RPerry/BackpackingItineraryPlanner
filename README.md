@@ -23,3 +23,7 @@ timeframe and interests.
 git clone https://github.com/RPerry/BackpackingItineraryPlanner.git
 ```
 2. Open BackpackingItineraryPlannerv2 with XCode
+
+## Future Updates
+
+1. Abilty to view saved itineraries.
